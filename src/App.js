@@ -1,21 +1,29 @@
 import React, { Component } from 'react'
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import RippleIntro from './Pages/ripple-intro/ripple-intro';
+import Homepage from './Pages/Homepage/Homepage';
+import LoginPage from './Pages/LoginPage/LoginPage';
+import Dashboard from './Pages/Dashboard/Dashboard';
 
 
 
 export default class App extends Component {
   render() {
     return (
-      <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-        Ripple Business Proposal App - Demo
-        </p>
-        <a className="App-link" href="#" target="_blank" rel="noopener noreferrer" >Start Here.</a>
-      </header>
-    </div>
+      <Switch>
+        <Route exact path="/">
+          <RippleIntro/>
+        </Route>
+        <Route exact path="/home">
+          <Homepage/>
+        </Route>
+        <Route exact path="/login">
+          <LoginPage/>
+        </Route>
+        <Route exact path="/dashboard">
+          <Dashboard/>
+        </Route>
+      </Switch>
     )
   }
 }

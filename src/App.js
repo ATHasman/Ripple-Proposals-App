@@ -12,10 +12,10 @@ export default class App extends Component {
     return (
       <Switch>
         <Route exact path="/">
-          <RippleIntro/>
-        </Route>
-        <Route exact path="/home">
           <Homepage/>
+        </Route>
+        <Route exact path="/intro">
+          <RippleIntro/>
         </Route>
         <Route exact path="/login">
           <LoginPage/>

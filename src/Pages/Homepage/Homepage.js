@@ -9,9 +9,11 @@ export default class Homepage extends Component {
         return (
             <div className="Home">
                 <HomeNavBar />
-                <Container>
-                    <h1>Homepage</h1>
-                    <Button>Click here</Button>
+                <Container xl={3} lg={4} md={6} sm={12} >
+                    <Row>
+                        <h1><a href="#Homepage" className="AnchorLink"><span>#</span></a>Homepage</h1>
+                        <Button>Click here</Button>
+                    </Row>
                 </Container>
             </div>
         )

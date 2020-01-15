@@ -6,7 +6,6 @@ import LoginPage from './Pages/LoginPage/LoginPage';
 import Dashboard from './Pages/Dashboard/Dashboard';
 
 
-
 export default class App extends Component {
   render() {
     return (

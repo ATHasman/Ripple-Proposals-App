@@ -12,9 +12,9 @@ export default class HomeNavBar extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto">
-                            <Nav.Link href="#/#features">Features</Nav.Link>
-                            <Nav.Link href="#/#product">Product</Nav.Link>
-                            <Nav.Link href="#/#about">About</Nav.Link>
+                            <Nav.Link href="/Product">Product</Nav.Link>
+                            <Nav.Link href="/Features">Features</Nav.Link>
+                            <Nav.Link href="/About">About</Nav.Link>
                             <Nav.Link href="#/login">Login</Nav.Link>
                         </Nav>
                         <Button bg="light" variant="success" >Sign Up Free</Button>

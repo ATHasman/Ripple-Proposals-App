@@ -5,10 +5,20 @@ import { Container, Button, Row, Col, Card } from 'react-bootstrap';
 
 
 export default class Homepage extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             
+        }
+    }
+    
     render() {
+        const { activeUser } = this.props;
+
         return (
             <div className="Home">
-                <HomeNavBar />
+                <HomeNavBar activeUser={activeUser}/>
                 <Container >
                    <h1 id="Homepage"><a href="#Homepage" className="AnchorLink homepage-h1"><span>#</span></a>Spread your work...</h1>
                     <Card>

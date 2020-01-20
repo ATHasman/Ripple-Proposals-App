@@ -3,12 +3,14 @@ import logo from '../Img/Ripple_Hand_logo_400x400 transparent.png';
 import { Button, Navbar, Nav, Image, Badge } from 'react-bootstrap';
 import '../Components/HomeNavBar.css';
 
+// HomeNavBar Props:
+//  activeUser: Null/Value ,variant (style): ,bg (style): , page: string "Home"/"Login".... 
+
 export default class HomeNavBar extends Component {
     constructor(props) {
         super(props)
     
         this.state = {
-             
         }
 
        
@@ -16,11 +18,15 @@ export default class HomeNavBar extends Component {
     
 
     render() {
-        const { activeUser,variant,bg } = this.props;
+        const { activeUser,variant,bg,page } = this.props;
+
+        const productLink = !activeUser ? <Nav.Link href="/Product">Product</Nav.Link> : null;
+        const featuresLink = !activeUser ? <Nav.Link href="/Features">Features</Nav.Link> : null;
+        const aboutLink = !activeUser ? <Nav.Link href="/About">About</Nav.Link> : null;
 
         const dashboardLink = activeUser ? <Nav.Link href="#/dashboard">Dashboard</Nav.Link> : null;
-        const signinLink = !activeUser ? <Nav.Link href="#/signin" className="signupLink">Sign in <Badge>free</Badge></Nav.Link> : null;
-        const loginLink = !activeUser ? <Nav.Link href="#/login">Login</Nav.Link> : null;
+        const signinLink = !activeUser && page!="Signup" ?  <Nav.Link href="#/signup" className="signupLink">Sign in <Badge>free</Badge></Nav.Link> : null;
+        const loginLink = !activeUser && page!="Login"? <Nav.Link href="#/login">Login</Nav.Link> : null;
         const logoutLink = activeUser ? <Nav.Link>Logout</Nav.Link> : null; 
 
         return (
@@ -30,9 +36,9 @@ export default class HomeNavBar extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto">
-                            <Nav.Link href="/Product">Product</Nav.Link>
-                            <Nav.Link href="/Features">Features</Nav.Link>
-                            <Nav.Link href="/About">About</Nav.Link>
+                            {productLink}
+                            {featuresLink}
+                            {aboutLink}
                             {loginLink}
                             {signinLink}
                             {dashboardLink}

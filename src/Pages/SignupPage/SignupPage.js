@@ -18,8 +18,8 @@ export default class SigninPage extends Component {
         const { activeUser } = this.props;
 
         return (
-            <div className="Signin">
-                <HomeNavBar page="Signin"/>
+            <div className="Signup">
+                <HomeNavBar page="Signup"/>
                 <Container>
                     <Row><h3>Welcome</h3></Row>
                 </Container>

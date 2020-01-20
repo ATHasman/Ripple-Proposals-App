@@ -2,14 +2,10 @@
     padding: 15px;
     width: 540px;
     min-width: 370px;
+    height: 650px;
     border-radius: 10px;
     border: whitesmoke solid 1px;
     background-color: #F7FAFC;
-    color: gray
+    color: gray;   
    
 }
-
-/* .fname , .lname {
-    margin: auto;
-    align-items: center;
-} */

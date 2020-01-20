@@ -8,23 +8,26 @@ export default class SignInComp extends Component {
         return (
             <div className="SignInComp">
                 <Container>
+                    <Row className="justify-content-center"><Form.Label >SignUp using</Form.Label>
+                    </Row>
                     <ButtonToolbar className="justify-content-center">
-                        <Row >
+                        <Row>
                             <Col>
-                                <Button href="#" variant="outline-primary" size="lg" active>Google</Button>
+                                <Button href="#" variant="outline-transparent" size="sm" active>Google</Button>
                             </Col>
                             <Col>
-                                <Button href="#" variant="outline-secondary" size="lg" active>GitHub</Button>
+                                <Button href="#" variant="outline-transparent" size="sm" active>GitHub</Button>
                             </Col>
                         </Row>
                     </ButtonToolbar>
                 </Container>
                 <Container>
+                    <Row className="justify-content-center">Or Sign up with credentials</Row>
                     <Form>
                         <Row>
                             <Col >                  
                                 <Form.Group controlId="formBasicFirstName" className="fname">
-                                    <Form.Label>First name</Form.Label>
+                                    <Form.Label size="sm">First name</Form.Label>
                                     <Form.Control type="text" placeholder="First Name" />
                                 </Form.Group>
                             </Col>

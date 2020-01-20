@@ -17,10 +17,9 @@ export default class LoginPage extends Component {
     render() {
         return (
             <div className="Login">
-                <HomeNavBar />
+                <HomeNavBar page="Login"/>
                 <Container>
-                    <Row><h3>Welcome</h3></Row>
-                    <Row><h6>Please Sign in with your credentials</h6></Row>
+                    <Row><h3>Welcome Back</h3></Row>
                 </Container>
                 <Container>
                     <Row className="justify-content-center">

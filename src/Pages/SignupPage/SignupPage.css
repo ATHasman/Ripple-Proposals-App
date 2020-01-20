@@ -1,11 +1,11 @@
-.Signin {
+.Signup {
     padding: 10px;
     background-image: url(../../Img/Log-aqua-ripple-bg-.png);
     background-position: center center;
     justify-content: space-around;
 }
 
-.Signin h3, .Signin h6 {
+.Signup h3, .Signup h6 {
     color: white;
     font-weight: lighter;
     text-align: center;

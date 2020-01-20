@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../SigninPage/SigninPage.css'
+import './SignupPage.css'
 import HomeNavBar from '../../Components/HomeNavBar'
 import SignInComp from '../../Components/SignInComp'
 import { Container, Row, Col } from 'react-bootstrap'
@@ -15,12 +15,13 @@ export default class SigninPage extends Component {
     }
     
     render() {
+        const { activeUser } = this.props;
+
         return (
             <div className="Signin">
-                <HomeNavBar />
+                <HomeNavBar page="Signin"/>
                 <Container>
                     <Row><h3>Welcome</h3></Row>
-                    <Row><h6>Please Sign in with your credentials</h6></Row>
                 </Container>
                 <Container>
                     <Row className="justify-content-center">

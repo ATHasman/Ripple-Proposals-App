@@ -16,7 +16,7 @@ export default class HomeNavBar extends Component {
     
 
     render() {
-        const { activeUser } = this.props;
+        const { activeUser,variant,bg } = this.props;
 
         const dashboardLink = activeUser ? <Nav.Link href="#/dashboard">Dashboard</Nav.Link> : null;
         const signinLink = !activeUser ? <Nav.Link href="#/signin" className="signupLink">Sign in free</Nav.Link> : null;
@@ -25,7 +25,7 @@ export default class HomeNavBar extends Component {
 
         return (
             <div className="HomeNavBar">
-                 <Navbar bg="transparent" variant="dark" expand="md">
+                 <Navbar bg={bg} variant={variant} expand="md">
                     <Navbar.Brand href="/"><Image src={logo} className="brand-logo" roundedCircle />Ripple</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">

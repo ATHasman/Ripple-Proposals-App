@@ -18,7 +18,7 @@ export default class Homepage extends Component {
 
         return (
             <div className="Home">
-                <HomeNavBar activeUser={activeUser}/>
+                <HomeNavBar activeUser={activeUser} variant="dark" bg="primary"/>
                 <Container >
                    <h1 id="Homepage"><a href="#Homepage" className="AnchorLink homepage-h1"><span>#</span></a>Spread your work...</h1>
                     <Card>

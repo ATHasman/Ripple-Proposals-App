@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../Img/Ripple_Hand_logo_400x400 transparent.png';
-import { Button, Navbar, Nav, Image } from 'react-bootstrap';
+import { Button, Navbar, Nav, Image, Badge } from 'react-bootstrap';
 import '../Components/HomeNavBar.css';
 
 export default class HomeNavBar extends Component {
@@ -19,7 +19,7 @@ export default class HomeNavBar extends Component {
         const { activeUser,variant,bg } = this.props;
 
         const dashboardLink = activeUser ? <Nav.Link href="#/dashboard">Dashboard</Nav.Link> : null;
-        const signinLink = !activeUser ? <Nav.Link href="#/signin" className="signupLink">Sign in free</Nav.Link> : null;
+        const signinLink = !activeUser ? <Nav.Link href="#/signin" className="signupLink">Sign in <Badge>free</Badge></Nav.Link> : null;
         const loginLink = !activeUser ? <Nav.Link href="#/login">Login</Nav.Link> : null;
         const logoutLink = activeUser ? <Nav.Link>Logout</Nav.Link> : null; 
 
@@ -38,7 +38,6 @@ export default class HomeNavBar extends Component {
                             {dashboardLink}
                             {logoutLink}
                         </Nav>
-                        {/* <Button bg="light" variant="success">Sign Up Free</Button> */}
                     </Navbar.Collapse>
                     {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

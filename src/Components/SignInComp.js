@@ -20,15 +20,21 @@ export default class SignInComp extends Component {
                     </ButtonToolbar>
                 </Container>
                 <Container>
-                    <Form>                        
-                        <Form.Group controlId="formBasicFirstName">
-                            <Form.Label>First name</Form.Label>
-                            <Form.Control type="text" placeholder="First Name" />
-                        </Form.Group>
-                        <Form.Group controlId="formBasicLastName">
-                            <Form.Label>Last name</Form.Label>
-                            <Form.Control type="text" placeholder="Last Name" />
-                        </Form.Group>
+                    <Form>
+                        <Row>
+                            <Col >                  
+                                <Form.Group controlId="formBasicFirstName" className="fname">
+                                    <Form.Label>First name</Form.Label>
+                                    <Form.Control type="text" placeholder="First Name" />
+                                </Form.Group>
+                            </Col>
+                            <Col>
+                                <Form.Group controlId="formBasicLastName" className="lname">
+                                    <Form.Label>Last name</Form.Label>
+                                    <Form.Control type="text" placeholder="Last Name" />
+                                </Form.Group>
+                            </Col>   
+                        </Row>   
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" placeholder="Enter email" />

@@ -33,10 +33,10 @@ export default class App extends Component {
           <RippleIntro/>
         </Route>
         <Route exact path="/login">
-          <LoginPage/>
+          <LoginPage activeUser={activeUser}/>
         </Route>
         <Route exact path="/Signin">
-          <SigninPage/>
+          <SigninPage activeUser={activeUser}/>
         </Route>
         <Route exact path="/dashboard">
           <Dashboard/>

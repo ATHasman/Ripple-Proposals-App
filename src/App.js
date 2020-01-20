@@ -4,7 +4,7 @@ import RippleIntro from './Pages/ripple-intro/ripple-intro';
 import Homepage from './Pages/Homepage/Homepage';
 import LoginPage from './Pages/LoginPage/LoginPage';
 import Dashboard from './Pages/Dashboard/Dashboard';
-import SigninPage from './Pages/SigninPage/SigninPage';
+import SignupPage from './Pages/SignupPage/SignupPage';
 
 
 export default class App extends Component {
@@ -35,8 +35,8 @@ export default class App extends Component {
         <Route exact path="/login">
           <LoginPage activeUser={activeUser}/>
         </Route>
-        <Route exact path="/Signin">
-          <SigninPage activeUser={activeUser}/>
+        <Route exact path="/signup">
+          <SignupPage activeUser={activeUser}/>
         </Route>
         <Route exact path="/dashboard">
           <Dashboard/>

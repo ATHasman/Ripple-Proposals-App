@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Form , Button, Container, ButtonToolbar, Nav, Row, Col  } from 'react-bootstrap'
+import { Form , Button, Container, Row, Col , Image } from 'react-bootstrap'
+import googleLogo from '../Img/Google-logo-25px.png'
+import githubLogo from '../Img/GitHub-logo-25px.png'
 import "../Components/SignInComp.css"
 
 
@@ -7,22 +9,20 @@ export default class SignInComp extends Component {
     render() {
         return (
             <div className="SignInComp">
-                <Container>
-                    <Row className="justify-content-center"><Form.Label >SignUp using</Form.Label>
-                    </Row>
-                    <ButtonToolbar className="justify-content-center">
+                <Container className="Signup-with">
+                    <Row className="justify-content-center"><Form.Label >Signup using</Form.Label></Row>
                         <Row>
-                            <Col>
-                                <Button href="#" variant="outline-transparent" size="sm" active>Google</Button>
+                            <Col className="justify-content-center">
+                                <Button href="#" variant="outline-transparent" size="sm" active><Image src={googleLogo}/> Google</Button>
                             </Col>
-                            <Col>
-                                <Button href="#" variant="outline-transparent" size="sm" active>GitHub</Button>
+                            <Col className="justify-content-center">
+                                <Button href="#" variant="outline-transparent" size="sm" active><Image src={githubLogo}/> GitHub</Button>
                             </Col>
                         </Row>
-                    </ButtonToolbar>
                 </Container>
-                <Container>
-                    <Row className="justify-content-center">Or Sign up with credentials</Row>
+
+                <Container className="Signup-form">
+                    <Row className="justify-content-center">or Signup with credentials</Row>
                     <Form>
                         <Row>
                             <Col >                  

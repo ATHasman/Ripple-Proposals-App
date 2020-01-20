@@ -4,20 +4,39 @@ import RippleIntro from './Pages/ripple-intro/ripple-intro';
 import Homepage from './Pages/Homepage/Homepage';
 import LoginPage from './Pages/LoginPage/LoginPage';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import SigninPage from './Pages/SigninPage/SigninPage';
 
 
 export default class App extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       activeUser: null
+      // {
+      //   "userID": "2020001"
+      //   "userName": "AT Hasman"
+      // }
+    }
+  }
+  
+
   render() {
+    const { activeUser } = this.state;
+
     return (
       <Switch>
         <Route exact path="/">
-          <Homepage/>
+          <Homepage activeUser={activeUser}/>
         </Route>
         <Route exact path="/intro">
           <RippleIntro/>
         </Route>
         <Route exact path="/login">
           <LoginPage/>
+        </Route>
+        <Route exact path="/Signin">
+          <SigninPage/>
         </Route>
         <Route exact path="/dashboard">
           <Dashboard/>

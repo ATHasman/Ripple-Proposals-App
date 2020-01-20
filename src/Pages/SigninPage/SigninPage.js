@@ -5,7 +5,7 @@ import SignInComp from '../../Components/SignInComp'
 import { Container, Row, Col } from 'react-bootstrap'
 
 
-export default class LoginPage extends Component {
+export default class SigninPage extends Component {
     render() {
         return (
             <div className="Login">

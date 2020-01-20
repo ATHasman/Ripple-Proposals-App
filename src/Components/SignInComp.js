@@ -8,9 +8,6 @@ export default class SignInComp extends Component {
         return (
             <div className="SignInComp">
                 <Container>
-                    <Row className="justify-content-center">
-                        <Form.Text className="text-muted">Sign up with</Form.Text>
-                    </Row>
                     <ButtonToolbar className="justify-content-center">
                         <Row >
                             <Col>
@@ -24,13 +21,13 @@ export default class SignInComp extends Component {
                 </Container>
                 <Container>
                     <Form>                        
-                        <Form.Group controlId="formBasicPassword">
+                        <Form.Group controlId="formBasicFirstName">
                             <Form.Label>First name</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
+                            <Form.Control type="text" placeholder="First Name" />
                         </Form.Group>
-                        <Form.Group controlId="formBasicPassword">
+                        <Form.Group controlId="formBasicLastName">
                             <Form.Label>Last name</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
+                            <Form.Control type="text" placeholder="Last Name" />
                         </Form.Group>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
@@ -39,8 +36,9 @@ export default class SignInComp extends Component {
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" placeholder="Password" />
+                            <Form.Text className="text-white">Notification Text</Form.Text>
                         </Form.Group>
-                        <Button variant="primary" type="submit">Create Account</Button>
+                        <Button variant="primary" type="submit" className="center">Create Account</Button>
                     </Form>
                 </Container>
             </div>

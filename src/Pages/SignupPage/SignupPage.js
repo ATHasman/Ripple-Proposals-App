@@ -19,7 +19,7 @@ export default class SigninPage extends Component {
 
         return (
             <div className="Signup">
-                <HomeNavBar page="Signup"/>
+                <HomeNavBar page="Signup" variant="dark"/>
                 <Container>
                     <Row><h3>Welcome</h3></Row>
                 </Container>

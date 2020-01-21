@@ -17,7 +17,7 @@ export default class LoginPage extends Component {
     render() {
         return (
             <div className="Login">
-                <HomeNavBar page="Login"/>
+                <HomeNavBar page="Login" variant="dark"/>
                 <Container>
                     <Row><h3>Welcome Back</h3></Row>
                 </Container>

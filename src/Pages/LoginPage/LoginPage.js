@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../LoginPage/LoginPage.css'
 import HomeNavBar from '../../Components/HomeNavBar'
-import SignInComp from '../../Components/SignInComp'
+import LogInComp from '../../Components/LogInComp'
 import { Container, Row, Col } from 'react-bootstrap'
 
 
@@ -23,7 +23,7 @@ export default class LoginPage extends Component {
                 </Container>
                 <Container>
                     <Row className="justify-content-center">
-                        <SignInComp />
+                        <LogInComp />
                     </Row>
                 </Container>
             </div>

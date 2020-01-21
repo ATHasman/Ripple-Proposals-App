@@ -3,6 +3,7 @@
     background-image: url(../../Img/Log-aqua-ripple-bg-.png);
     background-position: center center;
     justify-content: space-around;
+    height: 100vh;
 }
 
 .Signup h3, .Signup h6 {

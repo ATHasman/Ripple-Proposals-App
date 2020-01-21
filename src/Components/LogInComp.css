@@ -1,4 +1,4 @@
-.SignInComp {
+.LogInComp {
     padding: 15px;
     width: 540px;
     min-width: 370px;
@@ -6,18 +6,18 @@
     border-radius: 10px;
     border: whitesmoke solid 1px;
     background-color: #F7FAFC;
-    color: gray;   
+    color: gray;  
     font-size: 0.8em;
    
 }
 
-.Signup-with    {
+.Login-with    {
     text-align: center;
     justify-content: space-evenly;
     padding: 15px;
 }
 
-.Signup-form    {
+.Login-form    {
     border-top: rgb(182, 182, 182) solid 1px;
     text-align: center;
     justify-content: space-evenly;

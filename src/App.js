@@ -19,8 +19,23 @@ export default class App extends Component {
       //   "pass":  "atripple123"
       // }
     }
+
+    this.handleLogin = this.handleLogin.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
   }
   
+  handleLogin(user) {
+    this.setState({
+      activeUser: user
+    });
+  }
+
+  handleLogout() {
+    this.setState({
+      activeUser: null
+    })
+  }
+
 
   render() {
     const { activeUser } = this.state;

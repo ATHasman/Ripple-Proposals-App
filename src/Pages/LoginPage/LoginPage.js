@@ -4,6 +4,9 @@ import HomeNavBar from '../../Components/HomeNavBar'
 import LogInComp from '../../Components/LogInComp'
 import { Container, Row, Col } from 'react-bootstrap'
 
+// <LoginPage/> props: 
+// activeUser={activeUser} 
+// handleLogin={this.props.handleLogin}
 
 export default class LoginPage extends Component {
     constructor(props) {
@@ -20,7 +23,7 @@ export default class LoginPage extends Component {
                 </Container>
                 <Container>
                     <Row className="justify-content-center">
-                        <LogInComp />
+                        <LogInComp handleLogin={this.props.handleLogin}/>
                     </Row>
                 </Container>
             </div>

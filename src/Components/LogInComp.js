@@ -5,8 +5,37 @@ import githubLogo from '../Img/GitHub-logo-25px.png'
 import "../Components/LogInComp.css"
 
 
-export default class SignInComp extends Component {
+export default class LogInComp extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+            email: "",
+            password: ""
+       }
+
+       this.handleInputChange =this.handleInputChange.bind(this);
+       this.login = this.login.bind(this);
+    }
+    
+    handleInputChange(event)    {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value; // if Checkbox  target.Checked
+        const name = target.name;
+        
+        this.setState({         // setting state while User type input in formControle [name]:value {* this.state keys == email,password}
+            [name]: value
+        });
+    }
+
+    login() {
+        alert(this.state.email +" "+ this.state.password)
+    }
+
     render() {
+
+        const {email , pass} = this.state;
+
         return (
             <div className="LogInComp">
                 <Container className="Signup-with">
@@ -26,13 +55,14 @@ export default class SignInComp extends Component {
                     <Form>
                        <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Your Email" size="sm" />
+                            <Form.Control name="email" type="email" value={email} onChange={this.handleInputChange} placeholder="your@email.com" size="sm"  />
                         </Form.Group>
+
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" size="sm"/>
+                            <Form.Control name="password" type="password" value={pass} onChange={this.handleInputChange} placeholder="Password" size="sm"/>
                         </Form.Group>
-                        <Button variant="primary" type="submit" className="center">Login</Button>
+                        <Button variant="primary" type="button" className="center" onClick={this.login}>Login</Button>
                     </Form>
                 </Container>
             </div>

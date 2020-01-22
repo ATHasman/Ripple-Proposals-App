@@ -14,8 +14,9 @@ export default class App extends Component {
     this.state = {
        activeUser: null
       // {
-      //   "userID": "2020001"
-      //   "userName": "AT Hasman"
+      //   "userID": "2020001",
+      //   "userName": "ATHasman",
+      //   "pass":  "atripple123"
       // }
     }
   }

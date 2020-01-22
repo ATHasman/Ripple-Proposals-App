@@ -1,17 +1,21 @@
 import React, { Component } from 'react'
-import { Form , Button, Container, Row, Col , Image } from 'react-bootstrap'
+import { Form , Button, Container, Row, Col , Image, Alert } from 'react-bootstrap'
 import googleLogo from '../Img/Google-logo-25px.png'
 import githubLogo from '../Img/GitHub-logo-25px.png'
 import "../Components/LogInComp.css"
-
+import Parse from 'parse'
+import UserModel from "../Models/UserModel"
+import { Redirect } from 'react-router-dom'
 
 export default class LogInComp extends Component {
     constructor(props) {
         super(props)
-    
+        
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            showInvalidLoginError: false,
+            redirectToDashboard: false
        }
 
        this.handleInputChange =this.handleInputChange.bind(this);
@@ -29,13 +33,41 @@ export default class LogInComp extends Component {
     }
 
     login() {
-        alert(this.state.email +" "+ this.state.password)
+        // alert(this.state.email +" "+ this.state.password)
+
+        const { handleLogin } = this.props;
+        const { email, password } = this.state;
+
+        // Pass the username and password to logIn function ~ parseUser
+        Parse.User.logIn(email, password).then(parseUser => {
+            // Do stuff after successful login
+            const user = new UserModel(parseUser);
+
+            console.log('Logged in user', user);
+
+            // 1) Updating LoginPage > App component on the new active user
+            handleLogin(user)
+            
+            // 2) navigate to Dashboard page
+            this.setState({
+                redirectToDashboard: true
+            });
+            
+            }).catch(error => {
+                console.error('Error while logging in user', error);
+                this.setState({
+                    showInvalidLoginError: true
+            });
+
+        })
     }
-
     render() {
-
-        const {email , pass} = this.state;
-
+            const { email, password, showInvalidLoginError, redirectToDashboard } = this.state;
+            if (redirectToDashboard) {
+                return <Redirect to="/dashboard"/>
+            }
+            const errorAlert = showInvalidLoginError ? <Alert variant="danger">Invalid email or password!</Alert> : null;
+    
         return (
             <div className="LogInComp">
                 <Container className="Signup-with">
@@ -49,7 +81,7 @@ export default class LogInComp extends Component {
                             </Col>
                         </Row>
                 </Container>
-
+                {errorAlert}
                 <Container className="Login-form">
                     <Row className="justify-content-center"><Form.Label>or Login with credentials</Form.Label></Row>
                     <Form>
@@ -60,7 +92,7 @@ export default class LogInComp extends Component {
 
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control name="password" type="password" value={pass} onChange={this.handleInputChange} placeholder="Password" size="sm"/>
+                            <Form.Control name="password" type="password" value={password} onChange={this.handleInputChange} placeholder="Password" size="sm"/>
                         </Form.Group>
                         <Button variant="primary" type="button" className="center" onClick={this.login}>Login</Button>
                     </Form>

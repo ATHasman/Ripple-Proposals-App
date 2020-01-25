@@ -7,6 +7,12 @@ import Parse from 'parse'
 import UserModel from "../Models/UserModel"
 import { Redirect } from 'react-router-dom'
 
+
+
+//<LogInComp/> props:
+//      handleLogin={this.props.handleLogin}
+
+
 export default class LogInComp extends Component {
     constructor(props) {
         super(props)
@@ -27,13 +33,14 @@ export default class LogInComp extends Component {
         const value = target.type === 'checkbox' ? target.checked : target.value; // if Checkbox  target.Checked
         const name = target.name;
         
-        this.setState({         // setting state while User type input in formControle [name]:value {* this.state keys == email,password}
+        // setting state while User type input in formControle [name]:value {* this.state keys == email,password}
+        this.setState({    
             [name]: value
         });
     }
 
     login() {
-        // alert(this.state.email +" "+ this.state.password)
+        // login Logic
 
         const { handleLogin } = this.props;
         const { email, password } = this.state;
@@ -45,7 +52,7 @@ export default class LogInComp extends Component {
 
             console.log('Logged in user', user);
 
-            // 1) Updating LoginPage > App component on the new active user
+            // 1) Updating parent components LoginPage >> App with handleLogin(user) method
             handleLogin(user)
             
             // 2) navigate to Dashboard page

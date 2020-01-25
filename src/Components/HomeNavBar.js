@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../Img/Ripple_Hand_logo_400x400 transparent.png';
-import { Button, Navbar, Nav, Image, Badge } from 'react-bootstrap';
+import { Navbar, Nav, Image, Badge } from 'react-bootstrap';
 import '../Components/HomeNavBar.css';
 
 // HomeNavBar Props:
@@ -10,8 +10,9 @@ export default class HomeNavBar extends Component {
     constructor(props) {
         super(props)
     
-        this.state = {
-        }
+        // this.state = {
+        //     activeUser = this.props.activeUser;
+        // }
 
        
     }
@@ -25,8 +26,8 @@ export default class HomeNavBar extends Component {
         const aboutLink = !activeUser ? <Nav.Link href="/About">About</Nav.Link> : null;
 
         const dashboardLink = activeUser ? <Nav.Link href="#/dashboard">Dashboard</Nav.Link> : null;
-        const signinLink = !activeUser && page!="Signup" ?  <Nav.Link href="#/signup" className="signupLink">Sign in <Badge>free</Badge></Nav.Link> : null;
-        const loginLink = !activeUser && page!="Login"? <Nav.Link href="#/login">Login</Nav.Link> : null;
+        const signinLink = !activeUser && page!=="Signup" ?  <Nav.Link href="#/signup" className="signupLink">Sign in <Badge>free</Badge></Nav.Link> : null;
+        const loginLink = !activeUser && page!=="Login"? <Nav.Link href="#/login">Login</Nav.Link> : null;
         const logoutLink = activeUser ? <Nav.Link>Logout</Nav.Link> : null; 
 
         return (

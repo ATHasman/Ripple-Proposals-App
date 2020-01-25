@@ -17,7 +17,7 @@ export default class SignInComp extends Component {
     renderTooltip() {
         return (
             <div>
-            <Tooltip >8 characher combination of numbers (0-9), letters (a-z:A-Z), special characters ('@#$%^{`&`}*-+')</Tooltip>
+                <Tooltip >8 characher combination of numbers (0-9), letters (a-z:A-Z), special characters ('@#$%^{`&`}*-+')</Tooltip>
             </div>
         )
     }
@@ -64,8 +64,9 @@ export default class SignInComp extends Component {
                         </Form.Group>
                         <Form.Group>
                             <Row className="justify-content-center">
-                                <Form.Check type="checkbox" label="I Agree with the terms and conditions "></Form.Check>
-                                <a href="/privacy">Privacy Policy</a>
+                                <Form.Check type="checkbox" label="I Agree with the" required></Form.Check>
+                                <Form.Label><a href="/terms">Terms and Conditions </a></Form.Label>
+                                <Form.Label><a href="/privacy">Privacy Policy </a></Form.Label>
                             </Row>
                         </Form.Group>
                         <Button variant="primary" type="submit" className="center">Create Account</Button>

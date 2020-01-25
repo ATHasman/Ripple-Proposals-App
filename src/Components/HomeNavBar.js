@@ -2,24 +2,49 @@ import React, { Component } from 'react';
 import logo from '../Img/Ripple_Hand_logo_400x400 transparent.png';
 import { Navbar, Nav, Image, Badge, NavDropdown } from 'react-bootstrap';
 import '../Components/HomeNavBar.css';
+import { Redirect } from 'react-router-dom';
 
 // HomeNavBar Props:
-//  activeUser: Null/Value ,variant (style): ,bg (style): , page: string "Home"/"Login".... 
+//  activeUser: Null/Value ,
+//  variant (style): ,
+//  bg (style): , 
+//  page: string "Home"/"Login"/"Dashboard".... 
 
 export default class HomeNavBar extends Component {
     constructor(props) {
         super(props)
     
-        // this.state = {
-        //     activeUser = this.props.activeUser;
-        // }
+        this.state = {
+            redirectToHome : false
+        }
 
-       
+       this.logout = this.logout.bind(this)
+    }
+    
+    componentDidUpdate() {
+        if (this.state.redirectToHome)  {
+            this.setState({
+                redirectToHome: false
+            })
+        }
+    }
+
+    logout()    {
+        // HandleLogout Callback to App Page
+        this.props.handleLogout();
+
+        this.setState({
+            redirectToHome: true
+        })
     }
     
 
     render() {
-        const { activeUser,variant,bg,page } = this.props;
+        const {redirectToHome} = this.state;
+        if (redirectToHome) {
+            return <Redirect to="/"/>
+        }
+        const { activeUser,variant,bg,page} = this.props;
 
         const productLink = !activeUser ? <Nav.Link href="/Product">Product</Nav.Link> : null;
         const featuresLink = !activeUser ? <Nav.Link href="/Features">Features</Nav.Link> : null;
@@ -33,9 +58,11 @@ export default class HomeNavBar extends Component {
                                             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                                             <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                                             <NavDropdown.Divider />
-                                            <NavDropdown.Item href="#action/3.4">Logout</NavDropdown.Item></NavDropdown> 
+                                            <NavDropdown.Item href="#action/3.4">Another thing</NavDropdown.Item></NavDropdown> 
                                         : null; 
-        const logoutLink = activeUser ? <Nav.Link>Logout</Nav.Link> : null; 
+        const logoutLink = activeUser ? <Nav.Link onClick={this.logout}>Logout</Nav.Link> : null; 
+
+
 
         return (
             <div className="HomeNavBar">
@@ -54,13 +81,6 @@ export default class HomeNavBar extends Component {
                             {logoutLink}
                         </Nav>
                     </Navbar.Collapse>
-                    {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Logout</NavDropdown.Item>
-                    </NavDropdown> */}
                 </Navbar>
             </div>
         )

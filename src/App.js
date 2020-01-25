@@ -54,8 +54,8 @@ export default class App extends Component {
         <Route exact path="/signup">
           <SignupPage activeUser={activeUser} handleLogin={this.handleLogin}/>
         </Route>
-        <Route exact path="/dashboard" activeUser={activeUser} handleLogout={this.handleLogout}>
-          <Dashboard/>
+        <Route exact path="/dashboard">
+          <Dashboard activeUser={activeUser} handleLogout={this.handleLogout}/>
         </Route>
       </Switch>
     )

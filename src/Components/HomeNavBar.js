@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../Img/Ripple_Hand_logo_400x400 transparent.png';
-import { Navbar, Nav, Image, Badge } from 'react-bootstrap';
+import { Navbar, Nav, Image, Badge, NavDropdown } from 'react-bootstrap';
 import '../Components/HomeNavBar.css';
 
 // HomeNavBar Props:
@@ -28,6 +28,13 @@ export default class HomeNavBar extends Component {
         const dashboardLink = activeUser ? <Nav.Link href="#/dashboard">Dashboard</Nav.Link> : null;
         const signinLink = !activeUser && page!=="Signup" ?  <Nav.Link href="#/signup" className="signupLink">Sign in <Badge>free</Badge></Nav.Link> : null;
         const loginLink = !activeUser && page!=="Login"? <Nav.Link href="#/login">Login</Nav.Link> : null;
+        const userAccount = activeUser ? <NavDropdown title={this.props.activeUser.username} id="basic-nav-dropdown">
+                                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                                            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                                            <NavDropdown.Divider />
+                                            <NavDropdown.Item href="#action/3.4">Logout</NavDropdown.Item></NavDropdown> 
+                                        : null; 
         const logoutLink = activeUser ? <Nav.Link>Logout</Nav.Link> : null; 
 
         return (
@@ -43,6 +50,7 @@ export default class HomeNavBar extends Component {
                             {loginLink}
                             {signinLink}
                             {dashboardLink}
+                            {userAccount}
                             {logoutLink}
                         </Nav>
                     </Navbar.Collapse>

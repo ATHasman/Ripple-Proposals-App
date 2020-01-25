@@ -3,6 +3,9 @@ import '../Dashboard/Dashboard.css'
 import HomeNavBar from '../../Components/HomeNavBar'
 
 
+//<Dashboard/> Page Props:
+//  activeUser={activeUser} 
+//  handleLogout={this.handleLogout}
 export default class Dashboard extends Component {
     constructor(props) {
         super(props)
@@ -13,7 +16,7 @@ export default class Dashboard extends Component {
     }
     
     render() {
-        
+
         return (
             <div className="Dashboard">
                 <HomeNavBar page="Dashboard" variant="light"/>

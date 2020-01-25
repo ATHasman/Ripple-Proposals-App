@@ -43,7 +43,7 @@ export default class App extends Component {
     return (
       <Switch>
         <Route exact path="/">
-          <Homepage activeUser={activeUser}/>
+          <Homepage activeUser={activeUser} handleLogout={this.handleLogout}/>
         </Route>
         <Route exact path="/intro">
           <RippleIntro/>
@@ -52,9 +52,9 @@ export default class App extends Component {
           <LoginPage activeUser={activeUser} handleLogin={this.handleLogin}/>
         </Route>
         <Route exact path="/signup">
-          <SignupPage activeUser={activeUser}/>
+          <SignupPage activeUser={activeUser} handleLogin={this.handleLogin}/>
         </Route>
-        <Route exact path="/dashboard">
+        <Route exact path="/dashboard" activeUser={activeUser} handleLogout={this.handleLogout}>
           <Dashboard/>
         </Route>
       </Switch>

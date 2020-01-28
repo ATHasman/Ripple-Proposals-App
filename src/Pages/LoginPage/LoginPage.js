@@ -7,6 +7,7 @@ import { Container, Row } from 'react-bootstrap'
 // <LoginPage/> props: 
 //      activeUser={activeUser} 
 //      handleLogin={this.props.handleLogin}
+//      handleLogout={this.handleLogout}
 
 export default class LoginPage extends Component {
     constructor(props) {
@@ -24,15 +25,17 @@ export default class LoginPage extends Component {
     // }
 
     render() {
+        const { activeUser , handleLogin , handlelogout } = this.props
+
         return (
             <div className="Login">
-                <HomeNavBar page="Login" variant="dark"/>
+                <HomeNavBar handlelogout={handlelogout} activeUser={activeUser} page="Login" variant="dark"/>
                 <Container>
                     <Row><h3>Welcome Back</h3></Row>
                 </Container>
                 <Container>
                     <Row className="justify-content-center">
-                        <LogInComp handleLogin={this.props.handleLogin}/>
+                        <LogInComp handleLogin={handleLogin}/>
                     </Row>
                 </Container>
             </div>

@@ -3,7 +3,11 @@ import HomeNavBar from '../../Components/HomeNavBar';
 import '../Homepage/Homepage.css';
 import { Container, Button, Row, Col, Card } from 'react-bootstrap';
 
-
+// HomePage Props:
+//  activeUser: Null/Value ,
+//  handlelogout() - logout callback to App
+//  handlelogin() - login callback to App
+//  
 export default class Homepage extends Component {
     constructor(props) {
         super(props)
@@ -14,11 +18,12 @@ export default class Homepage extends Component {
     }
     
     render() {
-        const { activeUser } = this.props;
+        const { activeUser, handlelogout } = this.props;
 
         return (
             <div className="Home">
-                <HomeNavBar activeUser={activeUser} variant="dark" bg="primary" page="Home"/>
+                <HomeNavBar activeUser={activeUser} handlelogout={handlelogout} variant="dark" bg="primary" page="Home"/>
+                
                 <Container >
                    <h1 id="Homepage"><a href="#Homepage" className="AnchorLink homepage-h1"><span>#</span></a>Spread your work...</h1>
                     <Card>

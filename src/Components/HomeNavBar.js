@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom';
 
 // HomeNavBar Props:
 //  activeUser: Null/Value ,
+//  handlelogout() - callback to App
 //  variant (style): ,
 //  bg (style): , 
 //  page: string "Home"/"Login"/"Dashboard".... 

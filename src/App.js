@@ -36,10 +36,11 @@ export default class App extends Component {
     });
   }
 
-  handleLogout() {
+  handleLogout(user) {
     this.setState({
       activeUser: null
     });
+    
     Parse.User.logOut()
     .then(() => {
       const currentUser = Parse.User.current();

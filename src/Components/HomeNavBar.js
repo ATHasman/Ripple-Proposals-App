@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom';
 
 // HomeNavBar Props:
 //  activeUser: Null/Value ,
-//  handlelogout() - callback to App
+//  handlelogout() - callback to App , 
 //  variant (style): ,
 //  bg (style): , 
 //  page: string "Home"/"Login"/"Dashboard".... 
@@ -32,7 +32,8 @@ export default class HomeNavBar extends Component {
 
     logout()    {
         // HandleLogout Callback to App Page
-        this.props.handleLogout();
+        const {activeUser , handleLogout} = this.props;
+        handleLogout(activeUser);
 
         this.setState({
             redirectToHome: true

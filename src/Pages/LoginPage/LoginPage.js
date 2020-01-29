@@ -17,13 +17,6 @@ export default class LoginPage extends Component {
             activeUser: this.props.activeUser
          }
     }
-    
-    // handleLogin(user)   {
-    //     // need to set state to  - activeUser : User  
-    //     // when callback is sent by LoginComp. ?
-
-    // }
-
     render() {
         const { activeUser , handleLogin , handlelogout } = this.props
 

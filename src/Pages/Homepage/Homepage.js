@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import HomeNavBar from '../../Components/HomeNavBar';
 import '../Homepage/Homepage.css';
 import { Container, Button, Row, Col, Card } from 'react-bootstrap';
 
@@ -13,17 +12,14 @@ export default class Homepage extends Component {
         super(props)
     
         this.state = {
-             
+             activeUser: this.props.activeUser
         }
     }
     
     render() {
-        const { activeUser, handlelogout } = this.props;
 
         return (
-            <div className="Home">
-                <HomeNavBar activeUser={activeUser} handlelogout={handlelogout} variant="dark" bg="primary" page="Home"/>
-                
+            <div className="Home">                
                 <Container >
                    <h1 id="Homepage"><a href="#Homepage" className="AnchorLink homepage-h1"><span>#</span></a>Spread your work...</h1>
                     <Card>

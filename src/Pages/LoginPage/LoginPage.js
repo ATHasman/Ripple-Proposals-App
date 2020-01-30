@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import '../LoginPage/LoginPage.css'
-import HomeNavBar from '../../Components/HomeNavBar'
 import LogInComp from '../../Components/LogInComp'
 import { Container, Row } from 'react-bootstrap'
 
@@ -18,11 +17,11 @@ export default class LoginPage extends Component {
          }
     }
     render() {
-        const { activeUser , handleLogin , handlelogout } = this.props
+        const { handleLogin } = this.props
 
         return (
             <div className="Login">
-                <HomeNavBar handlelogout={handlelogout} activeUser={activeUser} page="Login" variant="dark"/>
+                {/* <HomeNavBar handlelogout={handlelogout} activeUser={activeUser} page="Login" variant="dark"/> */}
                 <Container>
                     <Row><h3>Welcome Back</h3></Row>
                 </Container>

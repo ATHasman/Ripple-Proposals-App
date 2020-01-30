@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import '../Dashboard/Dashboard.css'
-import HomeNavBar from '../../Components/HomeNavBar'
 
 
 //<Dashboard/> Page Props:
@@ -16,11 +15,11 @@ export default class Dashboard extends Component {
     }
     
     render() {
-        const { activeUser,handleLogout } = this.props;
+        // const { activeUser,handleLogout } = this.props;
         // console.log(this.props);
         return (
             <div className="Dashboard">
-                <HomeNavBar page="Dashboard" variant="light" activeUser={activeUser} handleLogout={handleLogout}/>
+                {/* <HomeNavBar page="Dashboard" variant="light" activeUser={activeUser} handleLogout={handleLogout}/> */}
                 <h1>Dashboard Page</h1>
             </div>
         )

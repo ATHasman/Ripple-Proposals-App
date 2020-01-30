@@ -8,26 +8,25 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import SignupPage from "./Pages/SignupPage/SignupPage";
 import Parse from "parse";
-import UserModel from "./Models/UserModel"
-
-
+import UserModel from "./Models/UserModel";
+import HomeNavBar from "./Components/HomeNavBar";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      activeUser: new UserModel(Parse.User.current()),
+      // Set initial state for activeUser according to Parse.User.current() value (Null / New UserModel(Parse.User.current())) 
+      activeUser: Parse.User.current() ? new UserModel(Parse.User.current()) : null
       // allUsers: null
-      // {
-      //   "userID": "2020001",
-      //   "userName": "ATHasman",
-      //   "pass":  "atripple123"
-      // }
     };
 
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  componentDidMount() {
+    console.log(Parse.User.current())
   }
 
   handleLogin(user) {
@@ -37,52 +36,62 @@ export default class App extends Component {
   }
 
   handleLogout(user) {
-    this.setState({
-      activeUser: null
-    });
-    
-    Parse.User.logOut()
-    .then(() => {
+    // logges out parse user from session
+    Parse.User.logOut().then(() => {
+      // access and and logs current user {Null/Undefined}
       const currentUser = Parse.User.current();
-      console.log("user logged out: ",currentUser);
-    })
+      console.log("Parse.User.current(): ", currentUser);
+      // change state active user - upon successful login
+      this.setState({
+        activeUser: null
+      });
+    });
   }
-
-  // setCurrentUsers() {
-  //   Parse.User.logIn("newUserName", "#Password123")
-  //     .then(user => {
-  //       const currentUser = Parse.User.current();
-  //       console.log("Current logged in user", currentUser);
-  //       this.setState({
-  //         allUsers: currentUser
-  //       });
-  //     })
-  //     .catch(error => {
-  //       console.error("Error while logging in user", error);
-  //     });
-  // }
 
   render() {
     const { activeUser } = this.state;
-
+ 
     return (
-      <Switch>
-        <Route exact path="/">
-          <Homepage activeUser={activeUser} handleLogin={this.handleLogin} handleLogout={this.handleLogout}/>
-        </Route>
-        <Route exact path="/intro">
-          <RippleIntro />
-        </Route>
-        <Route exact path="/login">
-          <LoginPage activeUser={activeUser} handleLogin={this.handleLogin} handleLogout={this.handleLogout}  />
-        </Route>
-        <Route exact path="/signup">
-          <SignupPage activeUser={activeUser} handleLogin={this.handleLogin} handleLogout={this.handleLogout}/>
-        </Route>
-        <Route exact path="/dashboard">
-          <Dashboard activeUser={activeUser} handleLogin={this.handleLogin} handleLogout={this.handleLogout} />
-        </Route>
-      </Switch>
+      <div className="mainApp">
+        <HomeNavBar
+          activeUser={activeUser}
+          handleLogout={this.handleLogout}
+          variant="dark"
+          bg="primary"
+          page="Home"
+        />
+
+        <Switch>
+          <Route exact path="/">
+            <Homepage
+              activeUser={activeUser}
+              handleLogin={this.handleLogin}
+              handleLogout={this.handleLogout}
+            />
+          </Route>
+          <Route exact path="/intro">
+            <RippleIntro />
+          </Route>
+          <Route exact path="/login">
+            <LoginPage
+              activeUser={activeUser}
+              handleLogin={this.handleLogin}
+            />
+          </Route>
+          <Route exact path="/signup">
+            <SignupPage
+              activeUser={activeUser}
+              handleLogin={this.handleLogin}
+            />
+          </Route>
+          <Route exact path="/dashboard">
+            <Dashboard
+              activeUser={activeUser}
+              handleLogin={this.handleLogin}
+            />
+          </Route>
+        </Switch>
+      </div>
     );
   }
 }

@@ -16,7 +16,8 @@ export default class HomeNavBar extends Component {
         super(props)
     
         this.state = {
-            redirectToHome : false
+            redirectToHome : false, 
+            activePage: this.props.page
         }
 
        this.logout = this.logout.bind(this)
@@ -40,13 +41,12 @@ export default class HomeNavBar extends Component {
         })
     }
     
-
     render() {
         const {redirectToHome} = this.state;
         if (redirectToHome) {
             return <Redirect to="/"/>
         }
-        const { activeUser,variant,bg,page} = this.props;
+        const { activeUser,variant,bg,page } = this.props;
 
         const productLink = !activeUser ? <Nav.Link href="/Product">Product</Nav.Link> : null;
         const featuresLink = !activeUser ? <Nav.Link href="/Features">Features</Nav.Link> : null;
@@ -64,12 +64,10 @@ export default class HomeNavBar extends Component {
                                         : null; 
         const logoutLink = activeUser ? <Nav.Link onClick={this.logout}>Logout</Nav.Link> : null; 
 
-
-
         return (
             <div className="HomeNavBar">
                  <Navbar bg={bg} variant={variant} expand="md">
-                    <Navbar.Brand href="/"><Image src={logo} className="brand-logo" roundedCircle />Ripple</Navbar.Brand>
+                    <Navbar.Brand href="/" onClick={this.goHome} ><Image src={logo} className="brand-logo" roundedCircle />Ripple</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto">

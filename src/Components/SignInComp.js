@@ -18,6 +18,7 @@ import githubLogo from "../Img/GitHub-logo-25px.png";
 import "../Components/SignInComp.css";
 import Parse from "parse";
 import { Redirect } from "react-router-dom";
+import UserModel from "../Models/UserModel";
 
 //<SignInComp/> Component Props:
 //  activeUser={activeUser}
@@ -45,6 +46,7 @@ export default class SignInComp extends Component {
   // To sign up a new user is a little bit different from creating a simple Parse Object
   //    in that the username and password fields are required
   //    and the password must contain a capital letter, lowercase letter, a number and be at least 8 characters long.
+
   renderTooltip() {
     return (
       <div>
@@ -69,11 +71,26 @@ export default class SignInComp extends Component {
 
   signUp() {
     // Signup Logic
-
+    console.log("signUp Activated");
     const { handleLogin } = this.props;
     const { email, password, fname, lname } = this.state;
-    const username = fname.concat(lname);
+    const username = fname+lname;
+// 
+// const user = new Parse.User()
+// user.set('username', 'A string');
+// user.set('email', 'A string');
+// user.set('fname', 'A string');
+// user.set('lname', 'A string');
+// user.set('password', '#Password123');
 
+// user.signUp().then((user) => {
+//   if (typeof document !== 'undefined') document.write(`User signed up: ${JSON.stringify(user)}`);
+//   console.log('User signed up', user);
+// }).catch(error => {
+//   if (typeof document !== 'undefined') document.write(`Error while signing up user: ${JSON.stringify(error)}`);
+//   console.error('Error while signing up user', error);
+// });
+//     
     const user = new Parse.User();
     user.set("username", username);
     user.set("email", email);
@@ -82,10 +99,10 @@ export default class SignInComp extends Component {
     user.set("password", password);
 
     // Pass the username and password to logIn function ~ parseUser
-    Parse.User.signUp()
-      .then(user => {
+    user.signUp()
+      .then(parseUser => {
         // Do stuff after login
-
+        const user = new UserModel(parseUser);
         // 1) Updating parent components SignupPage >> App with handleLogin(user) method
         handleLogin(user);
         console.log("User signed up", user);
@@ -113,7 +130,9 @@ export default class SignInComp extends Component {
       showInvalidSignupError,
       redirectToDashboard
     } = this.state;
-    const username = fname + lname;
+
+    // Handle event Click => react Bootstrap <Button/>
+    const handleClick = () => {this.signUp()};
 
     if (redirectToDashboard) {
       return <Redirect to="/dashboard" />;
@@ -220,8 +239,8 @@ export default class SignInComp extends Component {
                 variant="primary" 
                 type="submit"   
                 className="center"
-                onClick={this.signUp}
-            >
+                onClick={handleClick}
+              >
               Create Account
             </Button>
           </Form>

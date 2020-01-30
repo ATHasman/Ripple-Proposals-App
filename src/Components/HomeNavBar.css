@@ -1,6 +1,15 @@
 .signupLink {
     background-color: greenyellow;
     color: #153282 !important;
+    display: inline-block;
+    width: 120px;
     border-radius: 5px;
+    text-align: center;
+    transition: 0.2s;
+    box-shadow: 7px 5px 22px -4px rgba(0,0,0,0.75);;
+}
 
+.signupLink:hover {
+    transition: 0.2s;
+    box-shadow: 7px 5px 22px 4px rgba(0,0,0,0.75);
 }

@@ -53,7 +53,7 @@ export default class HomeNavBar extends Component {
         const aboutLink = !activeUser ? <Nav.Link href="/About">About</Nav.Link> : null;
 
         const dashboardLink = activeUser ? <Nav.Link href="#/dashboard">Dashboard</Nav.Link> : null;
-        const signinLink = !activeUser && page!=="Signup" ?  <Nav.Link href="#/signup" className="signupLink">Sign in <Badge>free</Badge></Nav.Link> : null;
+        const signinLink = !activeUser && page!=="Signup" ?  <Nav.Link size="md" href="#/signup" className="signupLink">Sign in<Badge>free</Badge></Nav.Link> : null;
         const loginLink = !activeUser && page!=="Login"? <Nav.Link href="#/login">Login</Nav.Link> : null;
         const userAccount = activeUser ? <NavDropdown title={this.props.activeUser.username} id="basic-nav-dropdown">
                                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

@@ -11,7 +11,7 @@ export default class RippleIntro extends Component {
             <header className="Intro-header">
                 <img src={logo} className="Intro-logo" alt="logo" />
                 <h4>Ripple Business Proposal App - Introducton Page 
-                    <a className="Intro-link" href="" target="_blank" rel="noopener noreferrer"> start here.</a>
+                    <a className="Intro-link" href="/intro" target="_blank" rel="noopener noreferrer"> start here.</a>
                 </h4>
             </header>
         </div>

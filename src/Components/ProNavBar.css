@@ -1,5 +1,9 @@
 .ProNavBar  {
     height: 100vh;
     margin-left: 0;
-    max-width: 150px;
+}
+
+.search-Input {
+    position: inline-block;
+    width: 100%
 }

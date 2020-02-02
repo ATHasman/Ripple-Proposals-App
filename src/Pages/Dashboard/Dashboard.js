@@ -22,13 +22,15 @@ export default class Dashboard extends Component {
       <div className="Dashboard">
         <Container>
           <Row>
-            <Col className="lg-2 md-2 sm-1">
-              <ProNavBar />
-            </Col>
-            <Col>
-                <h1>Dashboard Page</h1>
-            </Col>
-          </Row>
+              <Col>
+                    <ProNavBar />
+                </Col>
+            </Row>
+          <Row>
+                <Col className="lg-2 md-2 sm-1">
+                    <h1>Dashboard Page</h1>
+                </Col>
+            </Row>
         </Container>
       </div>
     );

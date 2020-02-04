@@ -10,6 +10,7 @@ import SignupPage from "./Pages/SignupPage/SignupPage";
 import Parse from "parse";
 import UserModel from "./Models/UserModel";
 import HomeNavBar from "./Components/HomeNavBar";
+import Templates from "./Pages/Templates/Templates";
 
 export default class App extends Component {
   constructor(props) {
@@ -86,6 +87,12 @@ export default class App extends Component {
           </Route>
           <Route exact path="/dashboard">
             <Dashboard
+              activeUser={activeUser}
+              handleLogin={this.handleLogin}
+            />
+          </Route>
+          <Route exact path="/templates">
+            <Templates
               activeUser={activeUser}
               handleLogin={this.handleLogin}
             />

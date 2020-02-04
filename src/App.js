@@ -68,7 +68,6 @@ export default class App extends Component {
             <Homepage
               activeUser={activeUser}
               handleLogin={this.handleLogin}
-              handleLogout={this.handleLogout}
             />
           </Route>
           <Route exact path="/intro">

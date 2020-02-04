@@ -13,27 +13,16 @@ export default class ProNavBar extends Component {
   render() {
     return (
       <div className="ProNavBar">
-        <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="md" bg="light" variant="light">
         <Navbar.Brand href="#dashboard">Dashboard</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mr-auto">
-            <Nav.Link href="#templates">Templates</Nav.Link>
-            <Nav.Link href="#proposals">Proposals</Nav.Link>
-            <Nav.Link href="#message">Messages</Nav.Link>
-            <Nav.Link href="#contcts">Contacts</Nav.Link>
-            <Nav.Link href="#settings">Profile</Nav.Link>
-            </Nav>
-            <Nav>
-            <Form className="flex-sm-column mr-auto search-Input" inline>
-            <FormControl
-              type="text"
-              placeholder="Search..."
-              className="mr-auto"
-              placeholder="Search"
-              size="sm"
-            />
-          </Form>
+            <Nav className="justify-content-center">
+              <Nav.Link href="#templates">Templates</Nav.Link>
+              <Nav.Link href="#proposals">Proposals</Nav.Link>
+              <Nav.Link href="#message">Messages</Nav.Link>
+              <Nav.Link href="#contacts">Contacts</Nav.Link>
+              <Nav.Link href="#profile">Profile</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

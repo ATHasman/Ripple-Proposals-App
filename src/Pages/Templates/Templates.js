@@ -1,8 +1,17 @@
 /** @format */
 
 import React, { Component } from "react";
-import ProNavBar from "../../Components/ProNavBar";
-import { Container, Row, Col, Form, FormControl } from "react-bootstrap";
+import '../Templates/Templates.css'
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  FormControl,
+  InputGroup,
+  Accordion,
+  Card
+} from "react-bootstrap";
 
 // Template Component Props:
 // activeUser={activeUser}
@@ -12,31 +21,39 @@ export default class Templates extends Component {
   render() {
     return (
       <div className="Templates">
-        <ProNavBar />
         <Container>
+          <Form>
+            <Row>
+              <Col>
+                <InputGroup className="mb-3">
+                  <InputGroup.Prepend>
+                    <InputGroup.Text>Search Template</InputGroup.Text>
+                  </InputGroup.Prepend>
+                  <FormControl />
+                </InputGroup>
+              </Col>
+            </Row>
+          </Form>
           <Row>
             <Col>
-              <h1>Templates</h1>
-            </Col>
-            <Col>
-              <p>industry field</p>
-              <Form className="flex-sm-column ml-auto " inline>
-                <FormControl
-                  type="text"
-                  placeholder="Search..."
-                  className="mr-auto"
-                  placeholder="Search"
-                  size="sm"
-                />
-              </Form>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <p>Temp. tile</p>
-            </Col>
-            <Col>
-              <p>Temp. tile</p>
+              <Accordion defaultActiveKey="0">
+                <Card>
+                  <Accordion.Toggle as={Card.Header} eventKey="0">
+                    Click me!
+                  </Accordion.Toggle>
+                  <Accordion.Collapse eventKey="0">
+                    <Card.Body>Hello! I'm the body</Card.Body>
+                  </Accordion.Collapse>
+                </Card>
+                <Card>
+                  <Accordion.Toggle as={Card.Header} eventKey="1">
+                    Click me!
+                  </Accordion.Toggle>
+                  <Accordion.Collapse eventKey="1">
+                    <Card.Body>Hello! I'm another body</Card.Body>
+                  </Accordion.Collapse>
+                </Card>
+              </Accordion>
             </Col>
           </Row>
         </Container>

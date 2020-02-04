@@ -13,3 +13,14 @@
     transition: 0.2s;
     box-shadow: 7px 5px 22px 4px rgba(0,0,0,0.75);
 }
+
+.messageLink    {
+    display: inline-block;
+    width: 160px;
+}
+
+.profileLink {
+    display: inline-block;
+    width: 160px;
+
+}

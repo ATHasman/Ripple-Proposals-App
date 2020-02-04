@@ -56,17 +56,15 @@ export default class HomeNavBar extends Component {
         const signinLink = !activeUser && page!=="Signup" ?  <Nav.Link size="md" href="#/signup" className="signupLink">Sign in<Badge>free</Badge></Nav.Link> : null;
         const loginLink = !activeUser && page!=="Login"? <Nav.Link href="#/login">Login</Nav.Link> : null;
         const userAccount = activeUser ? <NavDropdown title={this.props.activeUser.username} id="basic-nav-dropdown">
-                                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                                            <NavDropdown.Item href="#Messages" className="messageLink">Messages</NavDropdown.Item>
                                             <NavDropdown.Divider />
-                                            <NavDropdown.Item href="#action/3.4">Another thing</NavDropdown.Item></NavDropdown> 
+                                            <NavDropdown.Item href="#Profile" className="profileLink">Profile</NavDropdown.Item></NavDropdown> 
                                         : null; 
         const logoutLink = activeUser ? <Nav.Link onClick={this.logout}>Logout</Nav.Link> : null; 
 
         return (
             <div className="HomeNavBar">
-                 <Navbar bg={bg} variant={variant} expand="md">
+                 <Navbar bg={bg} variant={variant} expand="sm">
                     <Navbar.Brand href="/" onClick={this.goHome} ><Image src={logo} className="brand-logo" roundedCircle />Ripple</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">

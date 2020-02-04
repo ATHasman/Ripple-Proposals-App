@@ -2,7 +2,7 @@
 import "../Components/ProNavBar.css";
 
 import React, { Component } from "react";
-import { Form, FormControl, Button, Navbar, Nav } from "react-bootstrap";
+import { Form, FormControl, Navbar, Nav } from "react-bootstrap";
 
 export default class ProNavBar extends Component {
   constructor(props) {
@@ -13,8 +13,7 @@ export default class ProNavBar extends Component {
   render() {
     return (
       <div className="ProNavBar">
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        
+        <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
         <Navbar.Brand href="#dashboard">Dashboard</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -23,7 +22,7 @@ export default class ProNavBar extends Component {
             <Nav.Link href="#proposals">Proposals</Nav.Link>
             <Nav.Link href="#message">Messages</Nav.Link>
             <Nav.Link href="#contcts">Contacts</Nav.Link>
-            <Nav.Link href="#settings">Settings</Nav.Link>
+            <Nav.Link href="#settings">Profile</Nav.Link>
             </Nav>
             <Nav>
             <Form className="flex-sm-column mr-auto search-Input" inline>

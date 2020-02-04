@@ -16,19 +16,13 @@ export default class Dashboard extends Component {
   }
 
   render() {
-    // const { activeUser,handleLogout } = this.props;
-    // console.log(this.props);
     return (
       <div className="Dashboard">
+        <ProNavBar />
         <Container>
           <Row>
               <Col>
-                    <ProNavBar />
-                </Col>
-            </Row>
-          <Row>
-                <Col className="lg-2 md-2 sm-1">
-                    <h1>Dashboard Page</h1>
+                    <h1>Dashboard</h1>
                 </Col>
             </Row>
         </Container>

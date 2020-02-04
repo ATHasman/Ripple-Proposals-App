@@ -2,6 +2,7 @@
 
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
+import './App.css';
 import RippleIntro from "./Pages/ripple-intro/ripple-intro";
 import Homepage from "./Pages/Homepage/Homepage";
 import LoginPage from "./Pages/LoginPage/LoginPage";

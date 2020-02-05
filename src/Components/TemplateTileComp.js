@@ -18,8 +18,8 @@ export default class TemplateTileComp extends Component {
 
     return (
       <div className="TemplateTileComp">
-        <Card>
-          <Card.Img variant="top" src={Template.CoverUrl} />
+        <Card style={{height: '34rem'}}>
+          <Card.Img variant="top" style={{ width: '100%' , height: 'auto' }} src={Template.CoverUrl} />
           <Card.Body>
             <Card.Title>{Template.templateName}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">{Template.serviceType}</Card.Subtitle>

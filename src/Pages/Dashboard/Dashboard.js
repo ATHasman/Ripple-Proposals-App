@@ -2,7 +2,6 @@
 
 import React, { Component } from "react";
 import "../Dashboard/Dashboard.css";
-import ProNavBar from "../../Components/ProNavBar";
 import { Container, Row, Col } from "react-bootstrap";
 
 //<Dashboard/> Page Props:

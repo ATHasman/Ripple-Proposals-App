@@ -2,7 +2,7 @@
 import "../Components/ProNavBar.css";
 
 import React, { Component } from "react";
-import { Form, FormControl, Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 
 export default class ProNavBar extends Component {
   constructor(props) {

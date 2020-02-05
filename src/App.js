@@ -94,6 +94,11 @@ export default class App extends Component {
               activeUser={activeUser}
             />
           </Route>
+          {/* <Route exact path="/templates/:id">
+            <SingleTemplates
+              activeUser={activeUser}
+            />
+          </Route> */}
         </Switch>
       </div>
     );

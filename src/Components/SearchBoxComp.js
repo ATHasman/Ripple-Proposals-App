@@ -18,6 +18,7 @@ export default class SearchBoxComp extends Component {
   render() {
 
     const { searchPlaceholder, results } = this.props;
+    //Mapping Props Arr => to new Arr[] of JSX Elements set in {resultsGroupItems} variable to be rendered.
     const { resultsGroupItems } = results.map(result => <ListGroup.Item key={result}>{result}</ListGroup.Item>);
 
     return (

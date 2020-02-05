@@ -67,7 +67,6 @@ export default class App extends Component {
           <Route exact path="/">
             <Homepage
               activeUser={activeUser}
-              handleLogin={this.handleLogin}
             />
           </Route>
           <Route exact path="/intro">
@@ -88,13 +87,11 @@ export default class App extends Component {
           <Route exact path="/dashboard">
             <Dashboard
               activeUser={activeUser}
-              handleLogin={this.handleLogin}
             />
           </Route>
           <Route exact path="/templates">
             <Templates
               activeUser={activeUser}
-              handleLogin={this.handleLogin}
             />
           </Route>
         </Switch>

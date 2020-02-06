@@ -15,21 +15,20 @@ export default class TemplateTileComp extends Component {
 
   render() {
     const { Template } = this.props;
-    let Date = Template.dateModified.getMonth()+Template.dateModified.getDate()+Template.dateModified.getFullYear()
     return (
       <div className="TemplateTileComp">
         <Card className="TemplateTileCard">
           <Card.Img variant="top" style={{ width: '100%' , height: 'auto' }} src={Template.CoverUrl} />
-          <Card.Body>
+          <Card.Body className="d-flex flex-column">
             <Card.Title>{Template.templateName}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">{Template.serviceType}</Card.Subtitle>
             <Card.Text>{Template.CoverText}</Card.Text>
-            <Nav.Link size="md" href={"#/templates/" + Template.id} className="TileButton">
+            <Nav.Link size="md" href={"#/templates/" + Template.id} className="TileButton mt-auto">
               View or Edit Template
             </Nav.Link>
           </Card.Body>
           <Card.Footer>
-              <small className="text-muted">Last updated: {Template.dateModified.toDateString()}</small>
+            <small className="text-muted">Last updated: {Template.dateModified.toDateString()}</small>
           </Card.Footer>
         </Card>
       </div>

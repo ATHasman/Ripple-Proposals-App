@@ -1,5 +1,31 @@
+/** @format */
+
 .TemplateTileComp {
-    border: solid 1px gray;
+  border: solid 1px gray;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.TemplateTileCard {
+  height: 28rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.TemplateTileCard:hover {
+  box-shadow: 0 14px 14px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.TileButton {
+    color: 007bff;
+    background-color: whitesmoke;
     border-radius: 5px;
-    margin-bottom: 0.4rem;
+    text-align: center;
+    margin-bottom: 0em;
+}
+
+.TileButton:hover   {
+    box-shadow: 0 10px 10px #007bff;
+    color: #007bff;
+    transition: .3s all ease-in-out;
 }

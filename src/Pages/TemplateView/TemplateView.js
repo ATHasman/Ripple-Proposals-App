@@ -17,7 +17,7 @@ export default class TemplateView extends Component {
     componentDidMount() {
         //Extracting the Template ID from window URL . 
         let id = window.location.href.split("/")[window.location.href.split("/").length - 1]   
-        // Async readung from Parse Templates DB
+        // Async reading from Parse Templates DB
         const templates = Parse.Object.extend('Templates');
         const query = new Parse.Query(templates);
         //Query for Template.id
@@ -25,6 +25,7 @@ export default class TemplateView extends Component {
         query.find().then((results) => {
             console.log('Templates found', results);
             let templateResult = new TemplateModel(results)
+            console.log("Model from parse result: ",templateResult)
             // Updating State with Template_id; Extracted Template from Parse Template DB
             this.setState({
                 activeTemplateId : id,
@@ -39,8 +40,8 @@ export default class TemplateView extends Component {
     render() {
 
         const { activeUser } = this.props;
-
-
+        const { activeTemplateId , Template } = this.state;
+        
         return (
             <div classname="TemplateView">
                 

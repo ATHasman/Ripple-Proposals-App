@@ -22,16 +22,17 @@ export default class Templates extends Component {
 
   componentDidMount() {
     if (this.props.activeUser) {
-        const templates = Parse.Object.extend('Templates');
-        const query = new Parse.Query(templates);
-         // query.equalTo("serviceChargeQty", 1); //Query Condition segmentation
+        const parseTemplates = Parse.Object.extend('Templates');
+        const query = new Parse.Query(parseTemplates);
 
         query.find().then((results) => {
-          const Templates = results.map(result => {
+          // Mapping parse Results to new Arr[] of TemplateModel into Templates(var)
+            const Templates = results.map(result => {
             let temp = new TemplateModel(result);
             console.log("each template inside map: ",temp);
             return temp;
           });
+          console.log("all Templates: ",Templates);
           this.setState({Templates});
         }, (error) => {
           console.error('Error while fetching Templates', error);
@@ -48,38 +49,9 @@ export default class Templates extends Component {
 
     const TemplatesView = Templates.map(Temp => 
       <Col lg={3} md={4}>
-          <TemplateTileComp Template={Temp} key={Templates.templateName}/>
+          <TemplateTileComp Template={Temp} key={Temp.id}/>
       </Col>)
-    console.log(TemplatesView);
-
-    // Reading Templates Class from Parse (Extracting all Available Templates)
-        // const Templates = Parse.Object.extend("Templates");
-        // const query = new Parse.Query(Templates);
-        // query.equalTo("serviceType", "A string");
-        // query.equalTo("dateModified", new Date());
-        // query.equalTo("templateName", "A string");
-        // query.equalTo("CoverText", "A string");
-        // query.equalTo("OverView", "A string");
-        // query.equalTo("WhyUs", "A string");
-        // query.equalTo("CoverUrl", "A string");
-        // query.equalTo("serviceItems", new Parse.Object("ServiceItems"));
-        // query.equalTo("WhyUsUrl", "A string");
-        // query.equalTo("serviceChargeQty", 1);
-        // query.equalTo("serviceCostUSD", 1);
-        // query.equalTo("serviceDelivery", new Date());
-        // query.equalTo("paymentType", "A string");
-        // query.equalTo("paymentVariable", "A string");
-        // query.find().then(
-        //   results => {
-        //     // You can use the "get" method to get the value of an attribute
-        //     // Ex: response.get("<ATTRIBUTE_NAME>")
-            
-        //     console.log("Templates found", results);
-        //   },
-        //   error => {
-        //     console.error("Error while fetching Templates", error);
-        //   }
-        // );
+    console.log("TemplateView: " ,TemplatesView);
 
     return (
       <div className="Templates">

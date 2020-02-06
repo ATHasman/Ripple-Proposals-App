@@ -2,7 +2,7 @@
 
 import React, { Component } from "react";
 import "../Templates/Templates.css";
-import {  Container,Row,Col,InputGroup,Jumbotron} from "react-bootstrap";
+import {  Container,Row,Col,InputGroup,Jumbotron, CardGroup} from "react-bootstrap";
 import Parse from 'parse';
 import SearchBoxComp from "../../Components/SearchBoxComp";
 import TemplateModel from "../../Models/TemplateModel";
@@ -75,12 +75,12 @@ export default class Templates extends Component {
             results={["Template 1", "Template 2", "Template 3"]}
           />
         </Jumbotron>
-        
-        {/* Map/Loop Rendering the Tiles of Templates in the Container Section */}
-
         <Container>
           <Row>
+            <CardGroup>
+              {/* Map/Loop Rendering the Tiles of Templates in the Container Section */}
               {TemplatesView}
+            </CardGroup>
           </Row>
         </Container>
       </div>

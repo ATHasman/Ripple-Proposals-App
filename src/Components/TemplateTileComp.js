@@ -1,7 +1,7 @@
 /** @format */
 import '../Components/TemplateTileComp.css'
 import React, { Component } from "react";
-import { Card, Button, Nav } from "react-bootstrap";
+import { Card, Nav } from "react-bootstrap";
 
 // TemplateTileComp props: 
 //    Template =  TemplateModel Obj (instance of Parse Template Object) 
@@ -23,7 +23,7 @@ export default class TemplateTileComp extends Component {
             <Card.Title>{Template.templateName}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">{Template.serviceType}</Card.Subtitle>
             <Card.Text>{Template.CoverText}</Card.Text>
-            <Nav.Link size="md" href={"#/templates/" + Template.id} className="TileButton mt-auto">
+            <Nav.Link size="sm" href={"#/templates/" + Template.id} className="TileButton mt-auto">
               View or Edit Template
             </Nav.Link>
           </Card.Body>

@@ -55,7 +55,7 @@ export default class Templates extends Component {
 
     return (
       <div className="Templates">
-        <Jumbotron>
+        <Jumbotron className="templates-JT">
           <h1>
             Templates
             <InputGroup className="mb-3">
@@ -70,6 +70,7 @@ export default class Templates extends Component {
             You can select and custome edit the suggested template, or just
             Create a new template from scratch...
           </p>
+          {/* Implementation Needed SearchComponent  */}
           <SearchBoxComp
             searchPlaceholder="Search Template"
             results={["Template 1", "Template 2", "Template 3"]}

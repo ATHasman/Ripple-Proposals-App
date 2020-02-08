@@ -1,3 +1,11 @@
 .Templates  {
-    padding: 1rem;
+    margin: 1rem;
+}
+
+.templates-JT   {
+    background-image: url(../../Img/digital_ripples_bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 4px;
+    color: white
 }

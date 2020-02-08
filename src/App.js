@@ -12,6 +12,8 @@ import Parse from "parse";
 import UserModel from "./Models/UserModel";
 import HomeNavBar from "./Components/HomeNavBar";
 import Templates from "./Pages/Templates/Templates";
+import TemplateView from './Pages/TemplateView/TemplateView'
+import './Pages/TemplateView/TemplateView.css'
 
 export default class App extends Component {
   constructor(props) {
@@ -94,11 +96,11 @@ export default class App extends Component {
               activeUser={activeUser}
             />
           </Route>
-          {/* <Route exact path="/templates/:id">
+          <Route exact path="/templates/:id">
             <TemplateView
               activeUser={activeUser}
             />
-          </Route> */}
+          </Route>
         </Switch>
       </div>
     );

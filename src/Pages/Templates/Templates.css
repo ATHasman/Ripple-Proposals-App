@@ -3,9 +3,9 @@
 }
 
 .templates-JT   {
-    background-image: url(../../Img/digital_ripples_bg.jpg);
+    background-image: url(../../Img/RIpple_blue_dark_bg_1920x1080.jpg);
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: cover;
     border-radius: 4px;
     color: white
 }

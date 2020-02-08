@@ -18,6 +18,7 @@
 
 .TileButton {
     color: 007bff;
+    border: solid 0.8px #007bff;
     background-color: whitesmoke;
     border-radius: 5px;
     text-align: center;

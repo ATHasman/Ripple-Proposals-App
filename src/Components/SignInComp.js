@@ -118,7 +118,7 @@ export default class SignInComp extends Component {
     const handleClick = () => {this.signUp()};
 
     if (redirectToDashboard) {
-      return <Redirect to="/dashboard" />;
+      return <Redirect to="/templates" />;
     }
     const errorAlert = showInvalidSignupError ? (
       <Alert variant="danger">Invalid email or password!</Alert>

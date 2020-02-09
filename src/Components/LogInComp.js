@@ -84,7 +84,7 @@ export default class LogInComp extends Component {
       redirectToDashboard
     } = this.state;
     if (redirectToDashboard) {
-      return <Redirect to="/dashboard" />;
+      return <Redirect to="/templates" />;
     }
     const errorAlert = showInvalidLoginError ? (
       <Alert variant="danger">Invalid email or password!</Alert>

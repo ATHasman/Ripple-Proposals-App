@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import "../TemplateView/TemplateView.css";
 import TemplateModel from "../../Models/TemplateModel";
-import { Container, Jumbotron, InputGroup, Card } from "react-bootstrap";
+import { Container, Jumbotron, InputGroup, Card, Button, Row } from "react-bootstrap";
 import Parse from "parse";
 import ServicItemsModel from "../../Models/ServiceItemsModel";
 import ServiceItemsTable from "../../Components/ServiceItemsTable.js";
@@ -83,6 +83,14 @@ export default class TemplateView extends Component {
         </Jumbotron>
 
         <Container>
+          <Row>
+          <Button
+            size="lg" 
+            href={"#/proposals/" + Template.id} 
+            bsPrefix="UseTempButton mr-auto flex-end">
+              Use this Template as proposal
+          </Button>
+          </Row>
           <section className="Title">
             <Card className="text-center">
               <Card.Header text="black" as="h1">
@@ -92,23 +100,23 @@ export default class TemplateView extends Component {
           </section>
           <section className="Cover">
             <Card>
-              <Card.Img src={Template.CoverUrl} alt={Template.serviceType} />
-              <Card.ImgOverlay className="Cover.Text.Overlay">
-                <Card bg="transparent" text="white">
-                  <Card.Header text="black" as="h4">
-                    {" "}
-                    {Template.CoverText}{" "}
-                  </Card.Header>
-                  <Card.Text> Sent by : {activeUser.fname} </Card.Text>
-                  <Card.Text>
-                    Businees Proposal : {Template.serviceType}
-                  </Card.Text>
-                  {/* Use Contact feature */}
-                  <Card.Text>
-                    Client : {"contact.fname"} {"contact.lname"}
-                  </Card.Text>
-                </Card>
-              </Card.ImgOverlay>
+              <Card bg="light" text="black">
+                <Card.Text text="black" as="h4">
+                  <Card.Img
+                    src={Template.CoverUrl}
+                    alt={Template.serviceType}
+                  />
+                  <Card.ImgOverlay className="Cover.Text.Overlay Overlay-Text">
+                    {Template.CoverText}
+                    <Card.Text >Sent by : {activeUser.fname}</Card.Text>
+                    <Card.Text >Businees Proposal : {Template.serviceType}</Card.Text>
+                    {/* Use Contact feature */}
+                    {/* <Card.Text>
+                      Client : {"contact.fname"} {"contact.lname"}
+                    </Card.Text> */}
+                  </Card.ImgOverlay>
+                </Card.Text>
+              </Card>
             </Card>
           </section>
           <section className="OverView">
@@ -134,12 +142,12 @@ export default class TemplateView extends Component {
             </Card>
           </section>
           <section className="WhyUs">
-          <Card.Header as="h3">Why Us?</Card.Header>
-            <Card text="black">  
+            <Card.Header as="h3">Why Us?</Card.Header>
+            <Card text="black">
               <Card.Text>
                 <Card.Img src={Template.WhyUsUrl} alt={Template.WhyUsUrl} />
                 <Card.ImgOverlay className="Cover.Text.Overlay">
-                <Card.Text as="h4">Meet The Team</Card.Text>
+                  <Card.Text as="h4">Meet The Team</Card.Text>
                 </Card.ImgOverlay>
               </Card.Text>
               <Card.Text>{Template.WhyUs}</Card.Text>

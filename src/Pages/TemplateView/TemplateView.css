@@ -1,5 +1,5 @@
 .TemplateView  {
-    margin: 1rem;
+    margin: 0.5rem;
 }
 
 .templateView-JT   {
@@ -7,5 +7,36 @@
     background-repeat: no-repeat;
     background-position: cover;
     border-radius: 4px;
-    color: white
+    color: white;
+    box-shadow: 0 10px 5px gray;
+
+}
+
+.Overlay-Text   {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.246);
+
+}
+
+.UseTempButton {
+    color: 007bff;
+    border: solid 0.8px #007bff;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-bottom: 0;
+    padding: 10px;
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    margin: 1rem auto
+}
+
+.UseTempButton:hover   {
+    box-shadow: 0 10px 10px #007bff;
+    color: #007bff;
+    transition: .3s all ease-in-out;
+    text-decoration: none;
 }

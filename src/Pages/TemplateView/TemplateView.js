@@ -19,7 +19,7 @@ export default class TemplateView extends Component {
       activeTemplateId: window.location.href.split("/")[
         window.location.href.split("/").length - 1
       ],
-      Template: {}, 
+      Template: {},
       ServiceItems: []
     };
   }
@@ -38,12 +38,14 @@ export default class TemplateView extends Component {
         result => {
           console.log("Templates found", result);
           // setResult in ServiceItems
-          let templateServiceItemRelation = result.relation("serviceItems"); 
+          let templateServiceItemRelation = result.relation("serviceItems");
           let itemsQuery = templateServiceItemRelation.query();
-          itemsQuery.find().then( results => {
-              const ServiceItems = results.map(item => new ServicItemsModel(item));
-              console.log("ServiceItems found",ServiceItems);
-              this.setState({ServiceItems});
+          itemsQuery.find().then(results => {
+            const ServiceItems = results.map(
+              item => new ServicItemsModel(item)
+            );
+            console.log("ServiceItems found", ServiceItems);
+            this.setState({ ServiceItems });
           });
           // setResult in templateResult
           let templateResultModel = new TemplateModel(result);
@@ -93,9 +95,14 @@ export default class TemplateView extends Component {
               <Card.Img src={Template.CoverUrl} alt={Template.serviceType} />
               <Card.ImgOverlay className="Cover.Text.Overlay">
                 <Card bg="transparent" text="white">
-                <Card.Header text="black" as="h4"> {Template.CoverText} </Card.Header>
+                  <Card.Header text="black" as="h4">
+                    {" "}
+                    {Template.CoverText}{" "}
+                  </Card.Header>
                   <Card.Text> Sent by : {activeUser.fname} </Card.Text>
-                  <Card.Text>Businees Proposal : {Template.serviceType}</Card.Text>
+                  <Card.Text>
+                    Businees Proposal : {Template.serviceType}
+                  </Card.Text>
                   {/* Use Contact feature */}
                   <Card.Text>
                     Client : {"contact.fname"} {"contact.lname"}
@@ -106,28 +113,36 @@ export default class TemplateView extends Component {
           </section>
           <section className="OverView">
             <Card>
-            <Card.Header text="black" as="h4"> Overview and Objectives </Card.Header>
-              <Card.Text>
-                {Template.OverView}
-              </Card.Text>
+              <Card.Header text="black" as="h4">
+                {" "}
+                Overview and Objectives{" "}
+              </Card.Header>
+              <Card.Text>{Template.OverView}</Card.Text>
             </Card>
           </section>
           <section className="serviceItems">
             <Card>
-            <Card.Header text="black" as="h4">{Template.serviceType} - Scope of Service </Card.Header>
+              <Card.Header text="black" as="h4">
+                {Template.serviceType} - Scope of Service{" "}
+              </Card.Header>
               <Card.Body>
-                <ServiceItemsTable activeUser={activeUser} ServiceItems={ServiceItems}/>
+                <ServiceItemsTable
+                  activeUser={activeUser}
+                  ServiceItems={ServiceItems}
+                />
               </Card.Body>
             </Card>
           </section>
           <section className="WhyUs">
-            <Card>
-              <Card.Header as="h3">
-                Why Us?
-              </Card.Header>
+          <Card.Header as="h3">Why Us?</Card.Header>
+            <Card text="black">  
               <Card.Text>
-                {Template.WhyUs}
+                <Card.Img src={Template.WhyUsUrl} alt={Template.WhyUsUrl} />
+                <Card.ImgOverlay className="Cover.Text.Overlay">
+                <Card.Text as="h4">Meet The Team</Card.Text>
+                </Card.ImgOverlay>
               </Card.Text>
+              <Card.Text>{Template.WhyUs}</Card.Text>
             </Card>
           </section>
         </Container>

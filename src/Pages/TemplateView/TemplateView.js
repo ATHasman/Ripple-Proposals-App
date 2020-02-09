@@ -7,6 +7,7 @@ import { Container, Jumbotron, InputGroup, Card, Button, Row } from "react-boots
 import Parse from "parse";
 import ServicItemsModel from "../../Models/ServiceItemsModel";
 import ServiceItemsTable from "../../Components/ServiceItemsTable.js";
+import TempToPropModal from "../../Components/TempToPropModal";
 
 // TemplateView Props:
 //      activeUser={activeUser}
@@ -20,10 +21,18 @@ export default class TemplateView extends Component {
         window.location.href.split("/").length - 1
       ],
       Template: {},
-      ServiceItems: []
+      ServiceItems: [],
+      ShowModal:  false
     };
+    
+    this.handleClose = this.handleClose.bind(this);
   }
 
+  handleClose() {
+    this.setState({
+      ShowModal: false
+    })
+}
   componentDidMount() {
     // Repeating Initial Constructor Template Page View - Updating new State in case of change
     //Extracting the Template ID from window URL (String.Split > last subdomain soffix after "/"  ) .
@@ -65,7 +74,7 @@ export default class TemplateView extends Component {
 
   render() {
     const { activeUser } = this.props;
-    const { activeTemplateId, Template, ServiceItems } = this.state;
+    const { activeTemplateId, Template, ServiceItems, ShowModal} = this.state;
 
     return (
       <div className="TemplateView">
@@ -83,14 +92,18 @@ export default class TemplateView extends Component {
         </Jumbotron>
 
         <Container>
+          {/* // TempToPropModal Trigger  */}
           <Row>
           <Button
-            size="lg" 
-            href={"#/proposals/" + Template.id} 
-            bsPrefix="UseTempButton mr-auto flex-end">
+            size="lg"  
+            bsPrefix="UseTempButton mr-auto flex-end"
+            onClick={() => { this.setState({ ShowModal: true }) }}>
               Use this Template as proposal
           </Button>
           </Row>
+          {/* // Modal Component Rendering */}
+          <TempToPropModal show={ShowModal} handleClose={this.handleClose}  />
+
           <section className="Title">
             <Card className="text-center">
               <Card.Header text="black" as="h1">
@@ -122,8 +135,7 @@ export default class TemplateView extends Component {
           <section className="OverView">
             <Card>
               <Card.Header text="black" as="h4">
-                {" "}
-                Overview and Objectives{" "}
+                Overview and Objectives
               </Card.Header>
               <Card.Text>{Template.OverView}</Card.Text>
             </Card>
@@ -131,7 +143,7 @@ export default class TemplateView extends Component {
           <section className="serviceItems">
             <Card>
               <Card.Header text="black" as="h4">
-                {Template.serviceType} - Scope of Service{" "}
+                {Template.serviceType} - Scope of Service
               </Card.Header>
               <Card.Body>
                 <ServiceItemsTable

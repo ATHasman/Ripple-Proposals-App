@@ -10,7 +10,7 @@ export default class TemplateModel {
         this.WhyUs= parseModel.get("WhyUs");
         this.CoverUrl= parseModel.get("CoverUrl");
         this.WhyUsUrl= parseModel.get("WhyUsUrl");
-        // this.serviceChargeQty= parseModel.get("serviceChargeQty");
+         this.serviceChargeQty= parseModel.get("serviceChargeQty");
         this.serviceCostUSD= parseModel.get("serviceCostUSD");
         this.serviceDelivery= parseModel.get("serviceDelivery");
         this.paymentType= parseModel.get("paymentType");

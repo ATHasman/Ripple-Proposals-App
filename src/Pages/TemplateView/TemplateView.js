@@ -6,6 +6,7 @@ import TemplateModel from "../../Models/TemplateModel";
 import { Container, Jumbotron, InputGroup, Card } from "react-bootstrap";
 import Parse from "parse";
 import ServicItemsModel from "../../Models/ServiceItemsModel";
+import ServiceItemsTable from "../../Components/ServiceItemsTable.js";
 
 // TemplateView Props:
 //      activeUser={activeUser}
@@ -36,14 +37,15 @@ export default class TemplateView extends Component {
       query.get(tempId).then(
         result => {
           console.log("Templates found", result);
-          // setResult in templateResult
+          // setResult in ServiceItems
           let templateServiceItemRelation = result.relation("serviceItems"); 
           let itemsQuery = templateServiceItemRelation.query();
           itemsQuery.find().then( results => {
-              const serviceItems = results.map(item => new ServicItemsModel(item));
-              console.log("ServiceItems found",serviceItems);
-              this.setState({serviceItems});
+              const ServiceItems = results.map(item => new ServicItemsModel(item));
+              console.log("ServiceItems found",ServiceItems);
+              this.setState({ServiceItems});
           });
+          // setResult in templateResult
           let templateResultModel = new TemplateModel(result);
           console.log("Model from parse result: ", templateResultModel);
           // Updating State with Template_id; Extracted Template from Parse Template DB
@@ -114,7 +116,7 @@ export default class TemplateView extends Component {
             <Card>
             <Card.Header text="black" as="h4">{Template.serviceType} - Scope of Service </Card.Header>
               <Card.Body>
-                {/* <ServiceItemsTable activeUser={activeUser} ServiceItems={ServiceItems}/> */}
+                <ServiceItemsTable activeUser={activeUser} ServiceItems={ServiceItems}/>
               </Card.Body>
             </Card>
           </section>

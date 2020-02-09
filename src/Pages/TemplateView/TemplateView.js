@@ -102,7 +102,7 @@ export default class TemplateView extends Component {
           </Button>
           </Row>
           {/* // Modal Component Rendering */}
-          <TempToPropModal show={ShowModal} handleClose={this.handleClose}  />
+          <TempToPropModal show={ShowModal} handleClose={this.handleClose} TemplateData={Template} ServiceItemsData={ServiceItems} />
 
           <section className="Title">
             <Card className="text-center">

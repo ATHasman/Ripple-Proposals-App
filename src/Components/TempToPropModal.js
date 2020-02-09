@@ -2,12 +2,23 @@ import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 
+// <TempToPropModal/> Props: 
+//      show={ShowModal} - modal method
+//      handleClose={this.handleClose} - modal method
+//      TemplateData={Template} Model object{}
+//      ServiceItemsData={ServiceItems} Model object{} />
+
 export default class TempToPropModal extends Component {
     constructor(props) {
         super(props)
     
         this.state = {
-             
+            proposalName : "",
+            paymentType :   "",
+            paymentVariable :   "",
+            ProposalStatus :   "",
+            SenderUserID :   undefined,
+            RecieverUserID :   undefined,
         }
     }
     
@@ -15,9 +26,6 @@ export default class TempToPropModal extends Component {
         const { show, handleClose } = this.props;
         return (
             <div>
-                 {/* <Button variant="primary" onClick={() => setShow(true)}>
-                        Custom Width Modal
-                    </Button> */}
             <Modal  
                 show={show} 
                 onHide={handleClose}
@@ -27,19 +35,32 @@ export default class TempToPropModal extends Component {
                 >
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-vcenter">
-                    Modal heading
+                    Create proposal from template
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <h4>Centered Modal</h4>
-                    <p>
-                    Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                    dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                    consectetur ac, vestibulum at eros.
+                    <h5>Save as Proposal</h5>
+                    <p> Modal Proposal Detail completion from form input fields, 
+
+                    {/* // =>  +   "proposalName": "A string",  <=
+                        //  >>   "proposalCoverUrl": "A string",
+                        //  >>   "proposalCoverText": "A string",
+                        //  >>  "proposalOverView": "A string",
+                        //  >>   "ProposalWhyUs": "A string",
+                        //  >>  "proposalWhyUsUrl": "A string",
+                        //  >>  "proposalCostUSD": 1,
+                        //  >>   "projectDelivery": "2018-11-12T13:13:45.958Z",
+                        // => +   "paymentType": "A string",   <=
+                        // => +   "paymentVariable": "A string",
+                        //  >>   "proposalItems": { "__type": "Relation", "className": "ServiceItems" },
+                        // => +   "ProposalStatus": "A string", <=
+                        // => +   "SenderUserID": { "__type": "Relation", "className": "_User" }    <=
+                        // => +   "RecieverUserID": { "__type": "Relation", "className": "Contacts" }   <= */} 
                     </p>
                 </Modal.Body>
-                <Modal.Footer>
+                <Modal.Footer className="justify-content-center">
                     <Button onClick={handleClose}>Close</Button>
+                    {/* <Button onClick={handleNewProposal}>Save as Proposal</Button> */}
                 </Modal.Footer>
                 </Modal>
             </div>

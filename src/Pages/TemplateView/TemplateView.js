@@ -104,14 +104,14 @@ export default class TemplateView extends Component {
           {/* // Modal Component Rendering */}
           <TempToPropModal show={ShowModal} handleClose={this.handleClose} TemplateData={Template} ServiceItemsData={ServiceItems} />
 
-          <section className="Title">
+          <section key={`Title${Template.id}`} className="Title">
             <Card className="text-center">
               <Card.Header text="black" as="h1">
                 {Template.templateName}{" "}
               </Card.Header>
             </Card>
           </section>
-          <section className="Cover">
+          <section key={`Cover${Template.id}`}className="Cover">
             <Card>
               <Card bg="light" text="black">
                 <Card.Text text="black" as="h4">
@@ -122,7 +122,7 @@ export default class TemplateView extends Component {
                   <Card.ImgOverlay className="Cover.Text.Overlay Overlay-Text">
                     {Template.CoverText}
                     <Card.Text >Sent by : {activeUser.fname}</Card.Text>
-                    <Card.Text >Businees Proposal : {Template.serviceType}</Card.Text>
+                    <Card.Text >Business Proposal : {Template.serviceType}</Card.Text>
                     {/* Use Contact feature */}
                     {/* <Card.Text>
                       Client : {"contact.fname"} {"contact.lname"}
@@ -132,7 +132,7 @@ export default class TemplateView extends Component {
               </Card>
             </Card>
           </section>
-          <section className="OverView">
+          <section key={`OverView${Template.id}`} className="OverView">
             <Card>
               <Card.Header text="black" as="h4">
                 Overview and Objectives
@@ -140,7 +140,7 @@ export default class TemplateView extends Component {
               <Card.Text>{Template.OverView}</Card.Text>
             </Card>
           </section>
-          <section className="serviceItems">
+          <section key={`serviceItems${Template.id}`} className="serviceItems">
             <Card>
               <Card.Header text="black" as="h4">
                 {Template.serviceType} - Scope of Service
@@ -153,15 +153,13 @@ export default class TemplateView extends Component {
               </Card.Body>
             </Card>
           </section>
-          <section className="WhyUs">
+          <section key={`WhyUs${Template.id}`} className="WhyUs">
             <Card.Header as="h3">Why Us?</Card.Header>
             <Card text="black">
-              <Card.Text>
                 <Card.Img src={Template.WhyUsUrl} alt={Template.WhyUsUrl} />
                 <Card.ImgOverlay className="Cover.Text.Overlay">
-                  <Card.Text as="h4">Meet The Team</Card.Text>
+                  <Card.Text className="WhyUsOverlay-text">Meet The Team</Card.Text>
                 </Card.ImgOverlay>
-              </Card.Text>
               <Card.Text>{Template.WhyUs}</Card.Text>
             </Card>
           </section>

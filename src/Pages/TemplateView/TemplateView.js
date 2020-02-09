@@ -5,6 +5,7 @@ import "../TemplateView/TemplateView.css";
 import TemplateModel from "../../Models/TemplateModel";
 import { Container, Jumbotron, InputGroup, Card } from "react-bootstrap";
 import Parse from "parse";
+import ServicItemsModel from "../../Models/ServiceItemsModel";
 
 // TemplateView Props:
 //      activeUser={activeUser}
@@ -17,7 +18,8 @@ export default class TemplateView extends Component {
       activeTemplateId: window.location.href.split("/")[
         window.location.href.split("/").length - 1
       ],
-      Template: {}
+      Template: {}, 
+      ServiceItems: []
     };
   }
 
@@ -35,6 +37,13 @@ export default class TemplateView extends Component {
         result => {
           console.log("Templates found", result);
           // setResult in templateResult
+          let templateServiceItemRelation = result.relation("serviceItems"); 
+          let itemsQuery = templateServiceItemRelation.query();
+          itemsQuery.find().then( results => {
+              const serviceItems = results.map(item => new ServicItemsModel(item));
+              console.log("ServiceItems found",serviceItems);
+              this.setState({serviceItems});
+          });
           let templateResultModel = new TemplateModel(result);
           console.log("Model from parse result: ", templateResultModel);
           // Updating State with Template_id; Extracted Template from Parse Template DB
@@ -52,7 +61,7 @@ export default class TemplateView extends Component {
 
   render() {
     const { activeUser } = this.props;
-    const { activeTemplateId, Template } = this.state;
+    const { activeTemplateId, Template, ServiceItems } = this.state;
 
     return (
       <div className="TemplateView">
@@ -70,18 +79,72 @@ export default class TemplateView extends Component {
         </Jumbotron>
 
         <Container>
-          <Card>
-            <Card.Header>
-            <h4>{Template.serviceType}</h4>
-            <p>{activeUser.userType}</p> 
-            </Card.Header>
-            <Card.Img src={Template.CoverUrl} alt={Template.serviceType} />
-            <Card.Body>
-
-            </Card.Body>
-          </Card>
+          <section className="Title">
+            <Card className="text-center">
+              <Card.Header text="black" as="h1">
+                {Template.templateName}{" "}
+              </Card.Header>
+            </Card>
+          </section>
+          <section className="Cover">
+            <Card>
+              <Card.Img src={Template.CoverUrl} alt={Template.serviceType} />
+              <Card.ImgOverlay className="Cover.Text.Overlay">
+                <Card bg="transparent" text="white">
+                <Card.Header text="black" as="h4"> {Template.CoverText} </Card.Header>
+                  <Card.Text> Sent by : {activeUser.fname} </Card.Text>
+                  <Card.Text>Businees Proposal : {Template.serviceType}</Card.Text>
+                  {/* Use Contact feature */}
+                  <Card.Text>
+                    Client : {"contact.fname"} {"contact.lname"}
+                  </Card.Text>
+                </Card>
+              </Card.ImgOverlay>
+            </Card>
+          </section>
+          <section className="OverView">
+            <Card>
+            <Card.Header text="black" as="h4"> Overview and Objectives </Card.Header>
+              <Card.Text>
+                {Template.OverView}
+              </Card.Text>
+            </Card>
+          </section>
+          <section className="serviceItems">
+            <Card>
+            <Card.Header text="black" as="h4">{Template.serviceType} - Scope of Service </Card.Header>
+              <Card.Body>
+                {/* <ServiceItemsTable activeUser={activeUser} ServiceItems={ServiceItems}/> */}
+              </Card.Body>
+            </Card>
+          </section>
+          <section className="WhyUs">
+            <Card>
+              <Card.Header as="h3">
+                Why Us?
+              </Card.Header>
+              <Card.Text>
+                {Template.WhyUs}
+              </Card.Text>
+            </Card>
+          </section>
         </Container>
       </div>
     );
   }
 }
+
+// ("serviceType", 'A string');
+// ("dateModified", new Date());
+// ("templateName", 'A string');
+// ("CoverText", 'A string');
+// ("OverView", 'A string');
+// ("WhyUs", 'A string');
+// ("CoverUrl", 'A string');
+// ("serviceItems", new Parse.Object("ServiceItems")); // - needs activation
+// ("WhyUsUrl", 'A string');
+// ("serviceChargeQty", 1);
+// ("serviceCostUSD", 1);
+// ("serviceDelivery", new Date());
+// ("paymentType", 'A string');
+// ("paymentVariable", 'A string');

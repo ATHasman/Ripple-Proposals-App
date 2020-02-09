@@ -91,7 +91,7 @@ export default class TemplateView extends Component {
           <small>Template ID : {activeTemplateId}</small>
         </Jumbotron>
 
-        <Container>
+        <Container fluid  >
           {/* // TempToPropModal Trigger  */}
           <Row>
           <Button

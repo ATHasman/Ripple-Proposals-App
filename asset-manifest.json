@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/ripple-proposals-app/static/css/main.fda4a346.chunk.css",
+    "main.js": "/ripple-proposals-app/static/js/main.99f7f831.chunk.js",
+    "main.js.map": "/ripple-proposals-app/static/js/main.99f7f831.chunk.js.map",
+    "runtime-main.js": "/ripple-proposals-app/static/js/runtime-main.93103a12.js",
+    "runtime-main.js.map": "/ripple-proposals-app/static/js/runtime-main.93103a12.js.map",
+    "static/css/2.47e06e2e.chunk.css": "/ripple-proposals-app/static/css/2.47e06e2e.chunk.css",
+    "static/js/2.ff96ec96.chunk.js": "/ripple-proposals-app/static/js/2.ff96ec96.chunk.js",
+    "static/js/2.ff96ec96.chunk.js.map": "/ripple-proposals-app/static/js/2.ff96ec96.chunk.js.map",
+    "index.html": "/ripple-proposals-app/index.html",
+    "precache-manifest.a540eb3741ad1a66e6a58f4369823bf3.js": "/ripple-proposals-app/precache-manifest.a540eb3741ad1a66e6a58f4369823bf3.js",
+    "service-worker.js": "/ripple-proposals-app/service-worker.js",
+    "static/css/2.47e06e2e.chunk.css.map": "/ripple-proposals-app/static/css/2.47e06e2e.chunk.css.map",
+    "static/css/main.fda4a346.chunk.css.map": "/ripple-proposals-app/static/css/main.fda4a346.chunk.css.map",
+    "static/js/2.ff96ec96.chunk.js.LICENSE": "/ripple-proposals-app/static/js/2.ff96ec96.chunk.js.LICENSE",
+    "static/media/SignupPage.css": "/ripple-proposals-app/static/media/Log-aqua-ripple-bg-.1c6e22c7.png",
+    "static/media/Templates.css": "/ripple-proposals-app/static/media/RIpple_blue_dark_bg_1920x1080.f3a352cb.jpg",
+    "static/media/Ripple_Hand_logo_400x400 transparent.png": "/ripple-proposals-app/static/media/Ripple_Hand_logo_400x400 transparent.811b85e4.png",
+    "static/media/logo.svg": "/ripple-proposals-app/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.93103a12.js",
+    "static/css/2.47e06e2e.chunk.css",
+    "static/js/2.ff96ec96.chunk.js",
+    "static/css/main.fda4a346.chunk.css",
+    "static/js/main.99f7f831.chunk.js"
+  ]
+}

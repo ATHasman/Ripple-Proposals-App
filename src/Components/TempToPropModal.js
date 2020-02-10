@@ -65,6 +65,18 @@ export default class TempToPropModal extends Component {
                 </Form.Control>
             </Form.Group>
 
+            <Form.Group controlId="ProposalStatus.ControlSelect1">
+                <Form.Label>Select Proposal Status</Form.Label>
+                <Form.Control as="select" placeholder="On Work (Default)">
+                <option>On Work </option>
+                <option>Sent </option>
+                <option>Opened</option>
+                <option>Pending Approval</option>
+                <option>Pending Comment</option>
+                <option>Approved</option>
+                </Form.Control>
+            </Form.Group>
+
             <Form.Group controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Check me out" />
             </Form.Group>

@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d5cb063b76582e41afead71c46e0a23c",
+    "revision": "7ec0f606dce387b653881ff74982e3c5",
     "url": "/ripple-proposals-app/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ripple-proposals-app/static/css/2.47e06e2e.chunk.css"
   },
   {
-    "revision": "945f7532648ce5375716",
+    "revision": "e5941351d05fd5afb3ba",
     "url": "/ripple-proposals-app/static/css/main.fda4a346.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ripple-proposals-app/static/js/2.ff96ec96.chunk.js.LICENSE"
   },
   {
-    "revision": "945f7532648ce5375716",
-    "url": "/ripple-proposals-app/static/js/main.99f7f831.chunk.js"
+    "revision": "e5941351d05fd5afb3ba",
+    "url": "/ripple-proposals-app/static/js/main.dbdef5fb.chunk.js"
   },
   {
     "revision": "574e3d2b3ddde2b3ab75",

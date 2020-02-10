@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ripple-proposals-app/static/css/main.fda4a346.chunk.css",
-    "main.js": "/ripple-proposals-app/static/js/main.99f7f831.chunk.js",
-    "main.js.map": "/ripple-proposals-app/static/js/main.99f7f831.chunk.js.map",
+    "main.js": "/ripple-proposals-app/static/js/main.dbdef5fb.chunk.js",
+    "main.js.map": "/ripple-proposals-app/static/js/main.dbdef5fb.chunk.js.map",
     "runtime-main.js": "/ripple-proposals-app/static/js/runtime-main.93103a12.js",
     "runtime-main.js.map": "/ripple-proposals-app/static/js/runtime-main.93103a12.js.map",
     "static/css/2.47e06e2e.chunk.css": "/ripple-proposals-app/static/css/2.47e06e2e.chunk.css",
     "static/js/2.ff96ec96.chunk.js": "/ripple-proposals-app/static/js/2.ff96ec96.chunk.js",
     "static/js/2.ff96ec96.chunk.js.map": "/ripple-proposals-app/static/js/2.ff96ec96.chunk.js.map",
     "index.html": "/ripple-proposals-app/index.html",
-    "precache-manifest.a540eb3741ad1a66e6a58f4369823bf3.js": "/ripple-proposals-app/precache-manifest.a540eb3741ad1a66e6a58f4369823bf3.js",
+    "precache-manifest.9fba930aaec853c5042289214bb85bba.js": "/ripple-proposals-app/precache-manifest.9fba930aaec853c5042289214bb85bba.js",
     "service-worker.js": "/ripple-proposals-app/service-worker.js",
     "static/css/2.47e06e2e.chunk.css.map": "/ripple-proposals-app/static/css/2.47e06e2e.chunk.css.map",
     "static/css/main.fda4a346.chunk.css.map": "/ripple-proposals-app/static/css/main.fda4a346.chunk.css.map",
@@ -24,6 +24,6 @@
     "static/css/2.47e06e2e.chunk.css",
     "static/js/2.ff96ec96.chunk.js",
     "static/css/main.fda4a346.chunk.css",
-    "static/js/main.99f7f831.chunk.js"
+    "static/js/main.dbdef5fb.chunk.js"
   ]
 }

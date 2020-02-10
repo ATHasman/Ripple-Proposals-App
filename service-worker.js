@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ripple-proposals-app/precache-manifest.a540eb3741ad1a66e6a58f4369823bf3.js"
+  "/ripple-proposals-app/precache-manifest.9fba930aaec853c5042289214bb85bba.js"
 );
 
 self.addEventListener('message', (event) => {

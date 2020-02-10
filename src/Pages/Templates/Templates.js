@@ -48,7 +48,7 @@ export default class Templates extends Component {
     console.log("state: "+Templates);
 
     const TemplatesView = Templates.map(Temp => 
-      <Col lg={3} md={4}>
+      <Col key={Temp.id} lg={3} md={4}>
           <TemplateTileComp Template={Temp} key={Temp.id}/>
       </Col>)
     console.log("TemplateView: " ,TemplatesView);

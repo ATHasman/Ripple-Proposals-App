@@ -46,15 +46,16 @@ export default class TemplateView extends Component {
       query.get(tempId).then(
         result => {
           console.log("Templates found", result);
-          // setResult in ServiceItems
+          // setResult in ServiceItems (Relational-Many2Many)
           let templateServiceItemRelation = result.relation("serviceItems");
           let itemsQuery = templateServiceItemRelation.query();
           itemsQuery.find().then(results => {
-            const ServiceItems = results.map(
+            let ServiceItems = results.map(
               item => new ServicItemsModel(item)
             );
             console.log("ServiceItems found", ServiceItems);
             this.setState({ ServiceItems });
+            console.log("ServiceItems after SetState", this.state.ServiceItems);
           });
           // setResult in templateResult
           let templateResultModel = new TemplateModel(result);
@@ -75,7 +76,7 @@ export default class TemplateView extends Component {
   render() {
     const { activeUser } = this.props;
     const { activeTemplateId, Template, ServiceItems, ShowModal} = this.state;
-
+    console.log(ServiceItems);
     return (
       <div className="TemplateView">
         <Jumbotron className="templateView-JT">
@@ -101,8 +102,12 @@ export default class TemplateView extends Component {
               Use this Template as proposal
           </Button>
           </Row>
-          {/* // Modal Component Rendering */}
-          <TempToPropModal show={ShowModal} handleClose={this.handleClose} TemplateData={Template} ServiceItemsData={ServiceItems} />
+          {/* // TempToPropModal Component  < Render Here >  */}
+          <TempToPropModal 
+          show={ShowModal} 
+          handleClose={this.handleClose} 
+          Template={Template} 
+          ServiceItems={ServiceItems} />
 
           <section key={`Title${Template.id}`} className="Title">
             <Card className="text-center">
@@ -111,6 +116,7 @@ export default class TemplateView extends Component {
               </Card.Header>
             </Card>
           </section>
+
           <section key={`Cover${Template.id}`}className="Cover">
             <Card>
               <Card bg="light" text="black">
@@ -132,6 +138,7 @@ export default class TemplateView extends Component {
               </Card>
             </Card>
           </section>
+
           <section key={`OverView${Template.id}`} className="OverView">
             <Card>
               <Card.Header text="black" as="h4">
@@ -140,19 +147,23 @@ export default class TemplateView extends Component {
               <Card.Text>{Template.OverView}</Card.Text>
             </Card>
           </section>
+                    
           <section key={`serviceItems${Template.id}`} className="serviceItems">
             <Card>
               <Card.Header text="black" as="h4">
                 {Template.serviceType} - Scope of Service
               </Card.Header>
               <Card.Body>
+                {/* // <ServiceItemsTable Component  < Render Here >  */}
                 <ServiceItemsTable
-                  activeUser={activeUser}
-                  ServiceItems={ServiceItems}
+                  key={`${Template.id}-ServiceItemsTable`}
+                  activeUser={activeUser} 
+                  ServiceItems={ServiceItems} 
                 />
               </Card.Body>
             </Card>
           </section>
+
           <section key={`WhyUs${Template.id}`} className="WhyUs">
             <Card.Header as="h3">Why Us?</Card.Header>
             <Card text="black">
@@ -163,6 +174,7 @@ export default class TemplateView extends Component {
               <Card.Text>{Template.WhyUs}</Card.Text>
             </Card>
           </section>
+
         </Container>
       </div>
     );

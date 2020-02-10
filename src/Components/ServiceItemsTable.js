@@ -6,7 +6,6 @@ import { Table } from "react-bootstrap";
 // <ServiceItemsTable> Props:
 //      activeUser={activeUser} Obj
 //      ServiceItems={ServiceItems} Array of ServiceItemsModel
-
 export default class ServiceItemsTable extends Component {
   constructor(props) {
     super(props);
@@ -32,17 +31,16 @@ export default class ServiceItemsTable extends Component {
     const { activeUser, ServiceItems } = this.props;
     let ServiceRowItems = [];
     ServiceItems.map((item, index) => {
-        ServiceRowItems.push(
-        <tr key={`${activeUser.id}-${item.id}-serviceItem${index}`} >
-            <td>{index+1}</td>
-            <td key={`${activeUser.id}-${item.id}-serviceName`}>{item.serviceName}</td>
-            <td key={`${activeUser.id}-${item.id}-serviceDescription`}>{item.serviceDescription}</td>
-            <td key={`${activeUser.id}-${item.id}-serviceChargeBy`}>{item.serviceChargeBy}</td>
-            <td key={`${activeUser.id}-${item.id}-serviceChargeQty`}>{item.serviceChargeQty}</td>
-            <td key={`${activeUser.id}-${item.id}-serviceChargePrice`}>{item.serviceChargePrice}</td>
-            <td key={`${activeUser.id}-${item.id}-serviceItemCost`}>{item.calsServiceCost}</td>
-        </tr>       );
-        return (ServiceRowItems);
+      ServiceRowItems.push(
+      <tr key={`${activeUser.id}-${item.id}-serviceItem${index}`} >
+          <td>{index+1}</td>
+          <td key={`${activeUser.id}-${item.id}-serviceName`}>{item.serviceName}</td>
+          <td key={`${activeUser.id}-${item.id}-serviceDescription`}>{item.serviceDescription}</td>
+          <td key={`${activeUser.id}-${item.id}-serviceChargeBy`}>{item.serviceChargeBy}</td>
+          <td key={`${activeUser.id}-${item.id}-serviceChargeQty`}>{item.serviceChargeQty}</td>
+          <td key={`${activeUser.id}-${item.id}-serviceChargePrice`}>{item.serviceChargePrice}</td>
+          <td key={`${activeUser.id}-${item.id}-serviceItemCost`}>{item.calsServiceCost}</td>
+      </tr>       );
     });
     console.log(ServiceRowItems);
 
